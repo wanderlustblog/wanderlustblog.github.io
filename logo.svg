@@ -1,0 +1,19 @@
+<svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sunset" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c1593c"/>
+      <stop offset="100%" stop-color="#e08a5c"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(72,100)">
+    <circle cx="0" cy="0" r="48" fill="none" stroke="url(#sunset)" stroke-width="4"/>
+    <line x1="0" y1="-48" x2="0" y2="-39" stroke="#c1593c" stroke-width="2.5"/>
+    <line x1="0" y1="48" x2="0" y2="39" stroke="#c1593c" stroke-width="2.5"/>
+    <line x1="-48" y1="0" x2="-39" y2="0" stroke="#c1593c" stroke-width="2.5"/>
+    <line x1="48" y1="0" x2="39" y2="0" stroke="#c1593c" stroke-width="2.5"/>
+    <path d="M 0 -32 L 12 15 L 0 5 L -12 15 Z" fill="url(#sunset)"/>
+    <circle cx="0" cy="0" r="5" fill="#2b2320"/>
+  </g>
+  <text x="148" y="98" font-family="Georgia, 'Playfair Display', serif" font-size="46" font-weight="700" fill="#2b2320">Wander<tspan fill="url(#sunset)" font-style="italic">Lust</tspan></text>
+  <text x="150" y="126" font-family="Helvetica, Arial, sans-serif" font-size="13" letter-spacing="4" fill="#8a7f78">TRAVEL FAR · LIVE DEEPER</text>
+</svg>
