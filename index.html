@@ -141,7 +141,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .fb p{margin-top:.8rem;line-height:1.7;font-size:.82rem}
     .fbot{background:#030201;color:#3a342c;padding:1rem 4rem;font-size:.77rem;display:flex;justify-content:space-between;align-items:center}
     /* TESTIMONIALS */
-    .testi{position:relative;padding:6rem 4rem;background:linear-gradient(rgba(15,11,7,.72),rgba(15,11,7,.8)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80') center/cover;color:#fff}
+    .testi{position:relative;padding:6rem 4rem;color:#fff;overflow:hidden}
+    .testi-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+    .testi::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(15,11,7,.72),rgba(15,11,7,.8));z-index:1}
+    .testi-head,.testi-grid{position:relative;z-index:2}
     .testi-head{text-align:center;margin-bottom:3rem}
     .testi-head .eyebrow{justify-content:center;color:var(--gold)}
     .testi-head .eyebrow::before{background:var(--gold)}
@@ -186,6 +189,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <ul>
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="blog.html">Blog</a></li>
+    <li><a href="visa.html">Visa Guide</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
@@ -262,6 +266,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 <section class="testi" aria-label="Client testimonials">
+  <video class="testi-bg" autoplay muted loop playsinline aria-hidden="true">
+    <source src="testi-video.mp4" type="video/mp4"/>
+  </video>
   <div class="testi-head"><p class="eyebrow">What Readers Say</p><h2>Stories From Our Community</h2></div>
   <div class="testi-grid">
     <div class="tcard">
@@ -305,7 +312,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>Authentic travel stories and guides from 120+ countries. Real journeys. Real people. Real adventures since 2021.</p>
     <p style="margin-top:.6rem"><a href="mailto:wander.lustblog@outlook.com" style="color:#5a5048">wander.lustblog@outlook.com</a></p>
   </div>
-  <div><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="visa.html">Visa Guide</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
   <div><h4>Categories</h4><ul><li><a href="blog.html">Europe</a></li><li><a href="blog.html">Asia</a></li><li><a href="blog.html">Africa</a></li><li><a href="blog.html">Americas</a></li><li><a href="blog.html">Oceania</a></li></ul></div>
   <div><h4>Follow Along</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Twitter / X</a></li><li><a href="#">YouTube</a></li><li><a href="#">Pinterest</a></li></ul></div>
 </footer>
