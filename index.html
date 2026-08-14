@@ -140,6 +140,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     footer ul a:hover{color:var(--gold)}
     .fb p{margin-top:.8rem;line-height:1.7;font-size:.82rem}
     .fbot{background:#030201;color:#3a342c;padding:1rem 4rem;font-size:.77rem;display:flex;justify-content:space-between;align-items:center}
+    /* TESTIMONIALS */
+    .testi{position:relative;padding:6rem 4rem;background:linear-gradient(rgba(15,11,7,.72),rgba(15,11,7,.8)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80') center/cover;color:#fff}
+    .testi-head{text-align:center;margin-bottom:3rem}
+    .testi-head .eyebrow{justify-content:center;color:var(--gold)}
+    .testi-head .eyebrow::before{background:var(--gold)}
+    .testi-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;font-style:italic}
+    .testi-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+    .tcard{background:rgba(250,247,242,.06);border:1px solid rgba(212,168,83,.25);padding:2rem;border-radius:3px;backdrop-filter:blur(4px)}
+    .tstars{color:var(--gold);letter-spacing:2px;margin-bottom:1rem;font-size:.9rem}
+    .tcard p{color:#e8ddd0;line-height:1.75;font-size:.88rem;margin-bottom:1.2rem}
+    .tcard strong{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold)}
+    @media(max-width:900px){
+      .testi{padding:4rem 1.5rem}.testi-grid{grid-template-columns:1fr;gap:1.5rem}
+    }
     @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
     @media(max-width:900px){
       nav{padding:0 1.5rem}
@@ -246,6 +260,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 </main>
+
+<section class="testi" aria-label="Client testimonials">
+  <div class="testi-head"><p class="eyebrow">What Readers Say</p><h2>Stories From Our Community</h2></div>
+  <div class="testi-grid">
+    <div class="tcard">
+      <div class="tstars">★★★★★</div>
+      <p>WanderLust's guides aren't the generic "top 10" lists you find everywhere else. Their Iceland piece actually changed our route for the better.</p>
+      <strong>Miguel Rivera</strong>
+    </div>
+    <div class="tcard">
+      <div class="tstars">★★★★★</div>
+      <p>I've followed dozens of travel blogs and this is the only one that feels honest. The Kyoto guide saved us from the crowds completely.</p>
+      <strong>Larissa Charter</strong>
+    </div>
+    <div class="tcard">
+      <div class="tstars">★★★★★</div>
+      <p>Real stories, real photos, zero fluff. The newsletter alone is worth it — I look forward to it every week.</p>
+      <strong>Carey Larson</strong>
+    </div>
+  </div>
+</section>
 
 <section class="nl" aria-label="Newsletter">
   <div class="nl-l">
