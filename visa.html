@@ -169,11 +169,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       footer{grid-template-columns:1fr 1fr;padding:2rem 1.5rem}
       .fbot{flex-direction:column;gap:.5rem;padding:1rem 1.5rem;text-align:center}
     }
-  </style>
     /* VISA PAGE */
-    .vhero{position:relative;min-height:60vh;display:flex;align-items:center;padding-top:70px;overflow:hidden;color:#fff}
-    .vhero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-    .vhero::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(15,11,7,.55),rgba(15,11,7,.75));z-index:1}
+    .vhero{position:relative;min-height:60vh;display:flex;align-items:center;padding-top:70px;overflow:hidden;color:#fff;background:linear-gradient(135deg,var(--deep) 0%,#2a1f14 100%)}
     .vhero-in{position:relative;z-index:2;padding:5rem 4rem;max-width:760px}
     .vhero-in .eyebrow{color:var(--gold)}
     .vhero-in .eyebrow::before{background:var(--gold)}
@@ -185,10 +182,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .vintro .eyebrow{justify-content:center}
     .vintro h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:600}
     .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:4rem}
-    .vcard{background:#fff;border-radius:3px;padding:2rem;box-shadow:0 2px 16px rgba(15,11,7,.07);border-top:3px solid var(--terra)}
+    .vcard{background:#fff;border-radius:3px;padding:2rem;box-shadow:0 2px 16px rgba(15,11,7,.07);border-top:3px solid var(--terra);transition:transform .25s,box-shadow .25s}
+    .vcard:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(15,11,7,.12)}
     .vcard .vicon{font-size:1.8rem;margin-bottom:1rem}
     .vcard h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-bottom:.6rem;font-weight:600}
-    .vcard p{color:var(--muted);line-height:1.7;font-size:.88rem}
+    .vcard p{color:var(--muted);line-height:1.7;font-size:.88rem;margin-bottom:.9rem}
+    .vcard .vtag{display:inline-block;font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--terra);background:var(--sand);padding:.3rem .7rem;border-radius:2px;font-weight:600}
     .vtable{width:100%;border-collapse:collapse;margin-bottom:4rem;font-size:.9rem}
     .vtable th{text-align:left;background:var(--deep);color:var(--gold);padding:.9rem 1.2rem;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
     .vtable td{padding:.9rem 1.2rem;border-bottom:1px solid var(--sand);color:var(--deep)}
@@ -196,12 +195,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .vnote{background:var(--sand);border-left:3px solid var(--terra);padding:1.5rem 2rem;border-radius:2px;margin-bottom:1rem}
     .vnote h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;margin-bottom:.5rem;color:var(--terra)}
     .vnote p{color:var(--muted);line-height:1.75;font-size:.88rem}
+    /* COUNTRY FILTER */
+    .cfilter-wrap{max-width:1100px;margin:0 auto;padding:1rem 4rem 5rem}
+    .cfilter-bar{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin-bottom:2rem}
+    .cfilter-search{flex:1;min-width:220px;padding:.75rem 1.1rem;border:1.5px solid var(--sand);border-radius:2px;font-family:'Outfit',sans-serif;font-size:.9rem;background:#fff;color:var(--deep);outline:none;transition:border-color .2s}
+    .cfilter-search:focus{border-color:var(--terra)}
+    .cfilter-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+    .cftag{padding:.55rem 1.1rem;border:1.5px solid var(--sand);background:#fff;border-radius:20px;font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all .2s}
+    .cftag:hover{border-color:var(--terra);color:var(--terra)}
+    .cftag.active{background:var(--terra);border-color:var(--terra);color:#fff}
+    .cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .ccard{background:#fff;border:1px solid var(--sand);border-radius:3px;padding:1.1rem 1.3rem;display:flex;justify-content:space-between;align-items:center;gap:.6rem;transition:box-shadow .2s,transform .2s}
+    .ccard:hover{box-shadow:0 4px 18px rgba(15,11,7,.08);transform:translateY(-2px)}
+    .ccard span{font-weight:500;font-size:.9rem;color:var(--deep)}
+    .ccard.hidden{display:none}
+    .cbadge{font-size:.62rem;letter-spacing:.5px;text-transform:uppercase;font-weight:600;padding:.28rem .55rem;border-radius:2px;white-space:nowrap}
+    .cbadge.free{background:#e4f2ea;color:#2f7a52}
+    .cbadge.evisa{background:#e8eef8;color:#3a5fa8}
+    .cbadge.arrival{background:#fdf1de;color:#b8791f}
+    .cbadge.required{background:#fbe6e2;color:var(--terra)}
+    .cnote{text-align:center;color:var(--muted);font-size:.8rem;margin-top:2rem;font-style:italic}
+    .cempty{text-align:center;color:var(--muted);font-size:.9rem;padding:2rem;display:none}
+    /* GUIDES */
+    .gguides{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .gcard{background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 2px 16px rgba(15,11,7,.07);text-decoration:none;display:block;transition:transform .3s,box-shadow .3s;border-top:3px solid var(--gold)}
+    .gcard:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(15,11,7,.13)}
+    .gcard-body{padding:1.6rem}
+    .gtag{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600}
+    .gcard-body h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1.3;margin:.6rem 0 .6rem;font-weight:600;color:var(--deep)}
+    .gcard-body p{color:var(--muted);font-size:.85rem;line-height:1.6;margin-bottom:1rem}
+    .gread{font-size:.82rem;font-weight:600;color:var(--terra)}
+    @media(max-width:1100px) and (min-width:901px){
+      .cgrid{grid-template-columns:repeat(3,1fr)}
+      .gguides{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:1100px) and (min-width:901px){
+      .vgrid{grid-template-columns:repeat(2,1fr)}
+    }
     @media(max-width:900px){
       .vhero-in{padding:3rem 1.5rem}
       .vwrap{padding:3rem 1.5rem}
       .vgrid{grid-template-columns:1fr}
       .vtable{font-size:.8rem}
       .vtable th,.vtable td{padding:.6rem .8rem}
+      .cfilter-wrap{padding:1rem 1.5rem 3rem}
+      .cgrid{grid-template-columns:1fr 1fr}
+      .gguides{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -231,9 +270,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main>
 <section class="vhero" aria-label="Visa and travel requirements">
-  <video class="vhero-bg" autoplay muted loop playsinline aria-hidden="true">
-    <source src="visa-video.mp4" type="video/mp4"/>
-  </video>
   <div class="vhero-in">
     <p class="eyebrow">Plan ahead</p>
     <h1>Visa &amp; <em>Travel Requirements</em>, Simplified</h1>
@@ -252,16 +288,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="vicon">🛂</div>
       <h3>Tourist Visa</h3>
       <p>Short-stay entry for leisure travel, usually 30–90 days. Required in advance for many countries; some offer visa-on-arrival or e-visas.</p>
+      <span class="vtag">1–3 weeks</span>
+    </div>
+    <div class="vcard">
+      <div class="vicon">⚡</div>
+      <h3>E-Visa</h3>
+      <p>Applied for entirely online before you fly. Faster and simpler than an embassy visit, available for a growing number of countries.</p>
+      <span class="vtag">3–7 days</span>
+    </div>
+    <div class="vcard">
+      <div class="vicon">🛬</div>
+      <h3>Visa-on-Arrival</h3>
+      <p>Issued at the airport or border on entry. No advance application needed, but usually requires cash or card payment on the spot.</p>
+      <span class="vtag">Same day</span>
     </div>
     <div class="vcard">
       <div class="vicon">💻</div>
       <h3>Digital Nomad Visa</h3>
       <p>For remote workers staying longer term. Typically needs proof of income, remote employment, and health insurance.</p>
+      <span class="vtag">4–8 weeks</span>
+    </div>
+    <div class="vcard">
+      <div class="vicon">🎓</div>
+      <h3>Student Visa</h3>
+      <p>Required for enrolled study abroad. Needs an acceptance letter, proof of funds, and often a health check or interview.</p>
+      <span class="vtag">4–12 weeks</span>
     </div>
     <div class="vcard">
       <div class="vicon">✈️</div>
       <h3>Transit Visa</h3>
       <p>Needed for layovers in some countries even if you're not leaving the airport. Always check based on your layover country and duration.</p>
+      <span class="vtag">1–5 days</span>
     </div>
   </div>
 
@@ -277,17 +334,80 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <tr><td>E-Visa</td><td>3–7 business days</td><td>Online application + photo</td></tr>
       <tr><td>Standard Tourist Visa</td><td>1–3 weeks</td><td>Application + bank statement</td></tr>
       <tr><td>Digital Nomad Visa</td><td>4–8 weeks</td><td>Proof of income + insurance</td></tr>
-      <tr><td>Schengen Visa</td><td>2–4 weeks</td><td>Itinerary + travel insurance</td></tr>
+      <tr><td>Schengen Visa</td><td>15–45 days</td><td>Itinerary + travel insurance</td></tr>
     </tbody>
   </table>
 
   <div class="vnote">
     <h4>Always double-check official sources</h4>
-    <p>Visa rules change often. Confirm current requirements directly with the destination country's embassy or official immigration website before booking flights.</p>
+    <p>Visa rules change often and depend heavily on your passport's nationality. Confirm current requirements directly with the destination country's embassy or official immigration website before booking flights.</p>
   </div>
-  <div class="vnote">
-    <h4>Passport validity matters</h4>
-    <p>Many countries require at least 6 months of passport validity remaining from your entry date — check this well before you travel.</p>
+</div>
+
+<div class="cfilter-wrap">
+  <div class="vintro">
+    <p class="eyebrow">Search by destination</p>
+    <h2>Visa Requirements by Country</h2>
+  </div>
+  <div class="cfilter-bar">
+    <input type="text" id="countrySearch" class="cfilter-search" placeholder="Search a country…" aria-label="Search countries"/>
+    <div class="cfilter-tags" role="group" aria-label="Filter by visa type">
+      <button class="cftag active" data-filter="all">All</button>
+      <button class="cftag" data-filter="free">Visa-Free</button>
+      <button class="cftag" data-filter="evisa">E-Visa</button>
+      <button class="cftag" data-filter="arrival">Visa on Arrival</button>
+      <button class="cftag" data-filter="required">Visa Required</button>
+    </div>
+  </div>
+  <div class="cgrid" id="countryGrid">
+    <div class="ccard" data-type="free" data-name="france"><span>France</span><em class="cbadge free">Visa-Free*</em></div>
+    <div class="ccard" data-type="free" data-name="japan"><span>Japan</span><em class="cbadge free">Visa-Free*</em></div>
+    <div class="ccard" data-type="arrival" data-name="thailand"><span>Thailand</span><em class="cbadge arrival">Visa on Arrival</em></div>
+    <div class="ccard" data-type="evisa" data-name="india"><span>India</span><em class="cbadge evisa">E-Visa</em></div>
+    <div class="ccard" data-type="required" data-name="united states"><span>United States</span><em class="cbadge required">ESTA / Visa Required</em></div>
+    <div class="ccard" data-type="free" data-name="united kingdom"><span>United Kingdom</span><em class="cbadge free">ETA Required*</em></div>
+    <div class="ccard" data-type="evisa" data-name="australia"><span>Australia</span><em class="cbadge evisa">E-Visa (ETA)</em></div>
+    <div class="ccard" data-type="arrival" data-name="uae"><span>UAE</span><em class="cbadge arrival">Visa on Arrival*</em></div>
+    <div class="ccard" data-type="evisa" data-name="turkey"><span>Turkey</span><em class="cbadge evisa">E-Visa</em></div>
+    <div class="ccard" data-type="evisa" data-name="vietnam"><span>Vietnam</span><em class="cbadge evisa">E-Visa</em></div>
+    <div class="ccard" data-type="arrival" data-name="indonesia"><span>Indonesia</span><em class="cbadge arrival">Visa on Arrival</em></div>
+    <div class="ccard" data-type="arrival" data-name="egypt"><span>Egypt</span><em class="cbadge arrival">Visa on Arrival / E-Visa</em></div>
+    <div class="ccard" data-type="free" data-name="brazil"><span>Brazil</span><em class="cbadge free">Visa-Free*</em></div>
+    <div class="ccard" data-type="required" data-name="canada"><span>Canada</span><em class="cbadge required">eTA / Visa Required</em></div>
+    <div class="ccard" data-type="free" data-name="south africa"><span>South Africa</span><em class="cbadge free">Visa-Free*</em></div>
+    <div class="ccard" data-type="evisa" data-name="kenya"><span>Kenya</span><em class="cbadge evisa">E-Visa</em></div>
+    <div class="ccard" data-type="evisa" data-name="sri lanka"><span>Sri Lanka</span><em class="cbadge evisa">E-Visa (ETA)</em></div>
+    <div class="ccard" data-type="evisa" data-name="cambodia"><span>Cambodia</span><em class="cbadge evisa">E-Visa</em></div>
+    <div class="ccard" data-type="free" data-name="morocco"><span>Morocco</span><em class="cbadge free">Visa-Free*</em></div>
+    <div class="ccard" data-type="free" data-name="mexico"><span>Mexico</span><em class="cbadge free">Visa-Free*</em></div>
+    <div class="ccard" data-type="free" data-name="philippines"><span>Philippines</span><em class="cbadge free">Visa-Free*</em></div>
+    <div class="ccard" data-type="free" data-name="malaysia"><span>Malaysia</span><em class="cbadge free">Visa-Free*</em></div>
+    <div class="ccard" data-type="free" data-name="singapore"><span>Singapore</span><em class="cbadge free">Visa-Free*</em></div>
+    <div class="ccard" data-type="free" data-name="south korea"><span>South Korea</span><em class="cbadge free">Visa-Free* (K-ETA)</em></div>
+    <div class="ccard" data-type="evisa" data-name="new zealand"><span>New Zealand</span><em class="cbadge evisa">E-Visa (NZeTA)</em></div>
+    <div class="ccard" data-type="required" data-name="china"><span>China</span><em class="cbadge required">Visa Required*</em></div>
+    <div class="ccard" data-type="required" data-name="russia"><span>Russia</span><em class="cbadge required">Visa Required*</em></div>
+    <div class="ccard" data-type="evisa" data-name="saudi arabia"><span>Saudi Arabia</span><em class="cbadge evisa">E-Visa</em></div>
+    <div class="ccard" data-type="free" data-name="qatar"><span>Qatar</span><em class="cbadge free">Visa-Free*</em></div>
+    <div class="ccard" data-type="arrival" data-name="jordan"><span>Jordan</span><em class="cbadge arrival">Visa on Arrival</em></div>
+  </div>
+  <p class="cnote">*Requirements vary by your passport's nationality. Always confirm on the destination's official immigration website before booking.</p>
+</div>
+
+<div class="vwrap" style="padding-top:1rem">
+  <div class="vintro">
+    <p class="eyebrow">Read next</p>
+    <h2>Visa Guides</h2>
+  </div>
+  <div class="gguides">
+    <a href="visa-processing-time.html" class="gcard">
+      <div class="gcard-body">
+        <span class="gtag">Guide</span>
+        <h3>How Long Does a Tourist Visa Take to Process?</h3>
+        <p>A real breakdown of processing times by visa type, plus what actually causes delays.</p>
+        <span class="gread">Read Guide →</span>
+      </div>
+    </a>
   </div>
 </div>
 </main>
@@ -317,8 +437,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="visa.html">Visa Guide</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
   <div><h4>Categories</h4><ul><li><a href="blog.html">Europe</a></li><li><a href="blog.html">Asia</a></li><li><a href="blog.html">Africa</a></li><li><a href="blog.html">Americas</a></li><li><a href="blog.html">Oceania</a></li></ul></div>
-  <div><h4>Follow Along</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Twitter / X</a></li><li><a href="#">YouTube</a></li><li><a href="#">Pinterest</a></li></ul></div>
+  <div><h4>Follow Along</h4><ul><li><a href="https://www.instagram.com/wanderluststories.co/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/wanderlust_trl" target="_blank" rel="noopener">Twitter / X</a></li><li><a href="https://www.facebook.com/profile.php?id=61593307527985" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.pinterest.com/wanderlustblogtravel/" target="_blank" rel="noopener">Pinterest</a></li><li><a href="https://www.linkedin.com/company/wandertravellust" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.tumblr.com/wanderlustblogtravel" target="_blank" rel="noopener">Tumblr</a></li><li><a href="https://mastodon.social/@wanderbloglust" target="_blank" rel="noopener">Mastodon</a></li><li><a href="https://bsky.app/profile/wander-lustblog.bsky.social" target="_blank" rel="noopener">Bluesky</a></li></ul></div>
 </footer>
 <div class="fbot"><span>© 2026 WanderLust Blog. All rights reserved.</span><span>Made with ❤️ somewhere in the world</span></div>
+<script>
+(function(){
+  var search = document.getElementById('countrySearch');
+  var tags = document.querySelectorAll('.cftag');
+  var cards = document.querySelectorAll('.ccard');
+  var activeFilter = 'all';
+
+  function applyFilters(){
+    var q = search.value.trim().toLowerCase();
+    var visibleCount = 0;
+    cards.forEach(function(card){
+      var matchesType = activeFilter === 'all' || card.getAttribute('data-type') === activeFilter;
+      var matchesSearch = card.getAttribute('data-name').indexOf(q) !== -1;
+      var show = matchesType && matchesSearch;
+      card.classList.toggle('hidden', !show);
+      if(show) visibleCount++;
+    });
+  }
+
+  tags.forEach(function(tag){
+    tag.addEventListener('click', function(){
+      tags.forEach(function(t){ t.classList.remove('active'); });
+      tag.classList.add('active');
+      activeFilter = tag.getAttribute('data-filter');
+      applyFilters();
+    });
+  });
+
+  search.addEventListener('input', applyFilters);
+})();
+</script>
 </body>
 </html>
