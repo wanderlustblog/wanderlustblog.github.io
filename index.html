@@ -1,467 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<link rel="icon" type="image/svg+xml" href="favicon-teal.svg"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>WanderLust Blog — Authentic Travel Stories &amp; Guides From Around the World</title>
-<meta name="description" content="WanderLust is a travel blog sharing authentic stories, hidden gems, and in-depth guides from 120+ countries. Real journeys. Real people. Real adventures."/>
-<meta name="robots" content="index, follow, max-image-preview:large"/>
-<meta name="theme-color" content="#0b5c54"/>
-<link rel="canonical" href="https://wanderlustblog.github.io/"/>
-<meta property="og:type" content="website"/>
-<meta property="og:title" content="WanderLust Blog — Authentic Travel Stories &amp; Guides"/>
-<meta property="og:description" content="Real travel stories from 120+ countries. Hidden gems, honest guides, and wanderlust-fueled adventures."/>
-<meta property="og:url" content="https://wanderlustblog.github.io/"/>
-<meta property="og:image" content="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=1200&q=80"/>
-<meta property="og:site_name" content="WanderLust Blog"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:site" content="@wanderlust_trl"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"WanderLust Blog","url":"https://wanderlustblog.github.io","description":"Authentic travel stories and guides from 120+ countries.","publisher":{"@type":"Organization","name":"WanderLust Blog","logo":{"@type":"ImageObject","url":"https://wanderlustblog.github.io/logo-teal.svg"}}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"WanderLust Blog","url":"https://wanderlustblog.github.io","logo":"https://wanderlustblog.github.io/logo-teal.svg","sameAs":["https://x.com/wanderlust_trl","https://www.instagram.com/wanderluststories.co/","https://www.facebook.com/profile.php?id=61593307527985","https://www.pinterest.com/wanderlustblogtravel/","https://www.linkedin.com/company/wandertravellust","https://bsky.app/profile/wander-lustblog.bsky.social","https://mastodon.social/@wanderbloglust","https://www.tumblr.com/wanderlustblogtravel"]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --teal:#17a696;
-  --teal-dark:#0b5c54;
-  --forest:#0e2a20;
-  --forest-deep:#081a13;
-  --cream:#f6f2e8;
-  --ink:#12201b;
-  --muted:#5c6b63;
-  --paper:#fffdf8;
-}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
-img{display:block;max-width:100%}
-a{color:inherit}
-.disp{font-family:'Fraunces',serif}
-
-/* NAV */
-nav{position:fixed;top:0;width:100%;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 4rem;background:transparent;transition:background .35s,padding .35s}
-nav.scrolled{background:rgba(8,26,19,.92);backdrop-filter:blur(10px);padding:1rem 4rem}
-.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:#fff}
-.nav-logo svg{width:20px;height:20px}
-.nav-logo span{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;letter-spacing:.02em}
-nav ul{list-style:none;display:flex;gap:.3rem;align-items:center}
-nav ul a{text-decoration:none;color:rgba(255,255,255,.88);font-size:.82rem;font-weight:500;padding:.5rem 1rem;letter-spacing:.02em;transition:color .2s}
-nav ul a:hover{color:var(--teal)}
-.nav-cta{background:var(--teal);color:#06231f!important;padding:.6rem 1.4rem!important;border-radius:999px;font-weight:600!important}
-.nav-cta:hover{background:#1ec4b2;color:#06231f!important}
-
-/* HERO */
-.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end}
-.hero-bg{position:absolute;inset:0;overflow:hidden;background:url('hero-poster.jpg') center/cover no-repeat}
-.hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,20,15,.35) 0%,rgba(8,20,15,.15) 40%,rgba(8,20,15,.75) 100%)}
-.hero-content{position:relative;z-index:2;padding:0 4rem 6rem;max-width:900px;color:#fff}
-.hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.05;letter-spacing:-.01em}
-.hero h1 em{font-style:italic;font-weight:600}
-.hero .btn-row{margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;border-radius:999px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all .25s;letter-spacing:.01em}
-.btn-teal{background:var(--teal);color:#06231f;position:relative;overflow:hidden}
-.btn-teal::before{content:'';position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shimmer 3.2s ease-in-out infinite}
-@keyframes shimmer{0%{left:-75%}100%{left:150%}}
-.btn-teal:hover{background:#1ec4b2;transform:translateY(-2px)}
-.btn-outline{border:1.5px solid rgba(255,255,255,.55);color:#fff}
-.btn-outline:hover{background:rgba(255,255,255,.12)}
-
-/* SPLIT — LEAVE IT TO US */
-.split{display:grid;grid-template-columns:.85fr 2fr}
-.split-l{background:var(--teal);color:#06231f;padding:5rem 3.5rem;display:flex;flex-direction:column;justify-content:center}
-.split-l svg.compass{width:34px;height:34px;margin-bottom:2rem}
-.split-l h2{font-family:'Fraunces',serif;font-size:2.4rem;line-height:1.1}
-.split-l h2 em{font-weight:600}
-.split-l p{margin-top:1.2rem;font-size:.92rem;line-height:1.75;color:#06423b}
-.split-r{background:var(--forest);display:grid;grid-template-columns:repeat(3,1fr)}
-.sr-card{position:relative;border-right:1px solid rgba(255,255,255,.08)}
-.sr-card:last-child{border-right:none}
-.sr-img{height:230px;overflow:hidden}
-.sr-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.sr-card:hover .sr-img img{transform:scale(1.06)}
-.sr-body{padding:1.8rem 1.6rem 2.4rem;color:#fff}
-.sr-body h3{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;margin-bottom:.7rem;line-height:1.25}
-.sr-body p{font-size:.82rem;line-height:1.7;color:#b9c9c2}
-
-/* SECTION HEADS */
-.sec-head{text-align:center;padding:6rem 2rem 3rem}
-.sec-head h2{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,2.9rem);font-weight:400}
-.sec-head h2 em{font-weight:600;color:var(--teal-dark);font-style:italic}
-.sec-head p{color:var(--muted);max-width:520px;margin:.9rem auto 0;font-size:.92rem;line-height:1.7}
-
-/* ADVENTURES GRID */
-.adv-grid{max-width:1240px;margin:0 auto;padding:0 4rem 6rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.adv-card{border-radius:6px;overflow:hidden;background:var(--paper);box-shadow:0 6px 30px rgba(15,42,32,.08)}
-.adv-img{position:relative;height:280px;overflow:hidden}
-.adv-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.adv-card:hover .adv-img img{transform:scale(1.07)}
-.adv-tag{position:absolute;bottom:1.2rem;left:1.2rem;color:#fff}
-.adv-tag .cat{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;opacity:.85}
-.adv-tag h3{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;margin-top:.2rem}
-.adv-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(8,20,15,.75) 100%)}
-.adv-body{padding:1.3rem 1.5rem 1.6rem;display:flex;justify-content:space-between;align-items:flex-end;gap:1rem}
-.adv-body p{font-size:.84rem;color:var(--muted);line-height:1.6}
-.adv-arrow{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--teal);color:#06231f;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .25s}
-.adv-arrow:hover{background:var(--teal-dark);color:#fff;transform:translateX(3px)}
-
-/* OFFER GRID */
-.offer-wrap{background:var(--paper)}
-.offer-grid{max-width:1240px;margin:0 auto;padding:0 4rem 6rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
-.off-card{position:relative;border-radius:5px;overflow:hidden;height:340px}
-.off-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.off-card:hover img{transform:scale(1.07)}
-.off-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(8,20,15,.85) 100%)}
-.off-label{position:absolute;bottom:1.3rem;left:1.3rem;right:1.3rem;color:#fff;font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;line-height:1.25;z-index:2}
-
-/* TESTIMONIALS */
-.testi{position:relative;padding:7rem 2rem;background:linear-gradient(180deg,rgba(8,20,15,.55),rgba(8,20,15,.75)),url('https://images.unsplash.com/photo-1502786129293-79981df4e689?w=1600&q=80') center/cover;text-align:center;color:#fff}
-.testi-head h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2rem,4vw,2.8rem)}
-.testi-head h2 em{font-style:italic;font-weight:600}
-.testi-grid{max-width:1100px;margin:3.5rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-.t-card{padding:0 2.2rem;border-left:1px solid rgba(255,255,255,.18)}
-.t-card:first-child{border-left:none}
-.t-stars{color:var(--teal);letter-spacing:.2em;font-size:.9rem;margin-bottom:1rem}
-.t-card p{font-size:.88rem;line-height:1.8;color:#d9e4de;margin-bottom:1rem}
-.t-card strong{font-family:'Fraunces',serif;font-size:.95rem}
-
-/* CLOSING CTA */
-.cta{position:relative;min-height:70vh;display:flex;flex-direction:column;justify-content:center;color:#fff}
-.cta-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,20,15,.55),rgba(6,20,15,.35) 50%,rgba(6,20,15,.9)),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80') center/cover}
-.cta-top{position:relative;z-index:2;padding:2.5rem 4rem 0}
-.cta-mid{position:relative;z-index:2;text-align:center;padding:5rem 2rem}
-.cta-mid h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.2rem,5vw,3.4rem)}
-.cta-mid h2 em{font-style:italic;font-weight:600}
-.cta-mid p{margin-top:1rem;color:#cfe0d8;font-size:.95rem}
-.nl-inline{display:flex;justify-content:center;gap:.7rem;margin-top:2rem;flex-wrap:wrap}
-.nl-inline input{padding:.85rem 1.3rem;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font-size:.88rem;min-width:260px;outline:none}
-.nl-inline input::placeholder{color:rgba(255,255,255,.6)}
-
-/* SEARCH BAR — overlaps hero bottom edge */
-.search-wrap{position:relative;z-index:5;max-width:980px;margin:0 auto;padding:0 2rem;margin-top:-42px}
-.search-bar{background:#fff;border-radius:14px;box-shadow:0 20px 50px rgba(8,26,19,.22);display:flex;align-items:stretch;padding:.4rem}
-.sf{flex:1;display:flex;flex-direction:column;justify-content:center;padding:.7rem 1.4rem;position:relative}
-.sf:not(:last-child)::after{content:'';position:absolute;right:0;top:15%;bottom:15%;width:1px;background:rgba(15,32,27,.1)}
-.sf label{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem}
-.sf input,.sf select{border:none;outline:none;background:transparent;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;color:var(--ink);width:100%;appearance:none}
-.sf-btn{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--teal);color:#06231f;border:none;border-radius:10px;padding:0 1.8rem;font-size:.88rem;font-weight:700;cursor:pointer;transition:background .2s}
-.sf-btn:hover{background:#1ec4b2}
-@media(max-width:900px){
-  .search-wrap{margin-top:-30px;padding:0 1rem}
-  .search-bar{flex-direction:column;border-radius:16px;padding:1rem;gap:.6rem}
-  .sf:not(:last-child)::after{display:none}
-  .sf{padding:.5rem .3rem;border-bottom:1px solid rgba(15,32,27,.08)}
-  .sf-btn{border-radius:10px;padding:.9rem}
-}
-
-
-.foot-strip{position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.15);padding:2.5rem 4rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem}
-.fs-h{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem}
-.fs-b{font-size:.88rem;color:#e6efe9}
-.fs-b a{text-decoration:none;color:#e6efe9}
-.fs-social{display:flex;gap:.6rem}
-.fs-social a{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;text-decoration:none;color:#fff;transition:all .25s}
-.fs-social a:hover{background:var(--teal);border-color:var(--teal);color:#06231f;transform:translateY(-3px)}
-.fs-social svg{width:14px;height:14px}
-.fbot{position:relative;z-index:2;background:var(--forest-deep);padding:1rem 4rem;font-size:.75rem;color:#7d9088;display:flex;justify-content:space-between}
-.fbot a{color:#7d9088;text-decoration:none}
-
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes drawLine{from{width:0}to{width:48px}}
-
-.hero-content h1{opacity:0;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) .3s forwards}
-.hero-content .btn-row{opacity:0;animation:fadeUp .9s cubic-bezier(.22,1,.36,1) .55s forwards}
-.search-wrap{opacity:0;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .8s forwards}
-.nav-logo svg{animation:floatY 4s ease-in-out infinite}
-
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
-.reveal.in{opacity:1;transform:translateY(0)}
-.reveal-stagger.in .adv-card{opacity:0;animation:fadeUp .7s cubic-bezier(.22,1,.36,1) forwards}
-.reveal-stagger.in .adv-card:nth-child(1){animation-delay:.05s}
-.reveal-stagger.in .adv-card:nth-child(2){animation-delay:.2s}
-.reveal-stagger.in .adv-card:nth-child(3){animation-delay:.35s}
-.reveal-stagger.in .off-card{opacity:0;animation:fadeUp .7s cubic-bezier(.22,1,.36,1) forwards}
-.reveal-stagger.in .off-card:nth-child(1){animation-delay:.05s}
-.reveal-stagger.in .off-card:nth-child(2){animation-delay:.15s}
-.reveal-stagger.in .off-card:nth-child(3){animation-delay:.25s}
-.reveal-stagger.in .off-card:nth-child(4){animation-delay:.35s}
-.reveal-stagger.in .sr-card{opacity:0;animation:fadeUp .7s cubic-bezier(.22,1,.36,1) forwards}
-.reveal-stagger.in .sr-card:nth-child(1){animation-delay:.05s}
-.reveal-stagger.in .sr-card:nth-child(2){animation-delay:.2s}
-.reveal-stagger.in .sr-card:nth-child(3){animation-delay:.35s}
-.reveal-stagger.in .t-card{opacity:0;animation:fadeUp .7s cubic-bezier(.22,1,.36,1) forwards}
-.reveal-stagger.in .t-card:nth-child(1){animation-delay:.05s}
-.reveal-stagger.in .t-card:nth-child(2){animation-delay:.2s}
-.reveal-stagger.in .t-card:nth-child(3){animation-delay:.35s}
-
-.sec-head h2::after{content:'';display:block;height:2px;background:var(--teal);width:0;margin:.9rem auto 0}
-.sec-head.in h2::after{animation:drawLine .7s ease .3s forwards}
-
-@media (prefers-reduced-motion: reduce){
-  .hero-content h1,.hero-content .btn-row,.search-wrap,.nav-logo svg,.reveal,.reveal-stagger .adv-card,.reveal-stagger .off-card,.reveal-stagger .sr-card,.reveal-stagger .t-card,.sec-head h2::after{
-    animation:none!important;opacity:1!important;transform:none!important;width:48px!important
-  }
-}
-
-
-  nav ul{display:none}
-  .hero-content{padding:0 1.5rem 4rem}
-  .split{grid-template-columns:1fr}
-  .split-l{padding:3rem 1.5rem}
-  .split-r{grid-template-columns:1fr}
-  .sr-card{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
-  .adv-grid{grid-template-columns:1fr;padding:0 1.5rem 3rem}
-  .offer-grid{grid-template-columns:1fr 1fr;padding:0 1.5rem 3rem}
-  .testi-grid{grid-template-columns:1fr;gap:2.5rem}
-  .t-card{border-left:none;padding:0}
-  .foot-strip{grid-template-columns:1fr;padding:2rem 1.5rem}
-  .cta-top,.fbot{padding-left:1.5rem;padding-right:1.5rem}
-  .fbot{flex-direction:column;gap:.4rem;text-align:center}
-}
-</style>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TR9NWVPL');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WanderLust Blog — Authentic Travel Stories &amp; Guides From Around the World</title>
+  <meta name="description" content="WanderLust is a travel blog sharing authentic stories, hidden gems, and in-depth guides from 120+ countries. Real journeys. Real people. Real adventures."/>
+  <meta name="keywords" content="travel blog, travel stories, travel guides, backpacking, adventure travel, hidden gems, wanderlust"/>
+  <meta name="author" content="WanderLust Blog — Maya Chen &amp; Luca Ferretti"/>
+  <meta name="robots" content="index, follow, max-image-preview:large"/>
+  <meta name="theme-color" content="#c1593c"/>
+  <link rel="canonical" href="https://wanderlustblog.github.io/"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="WanderLust Blog — Authentic Travel Stories &amp; Guides"/>
+  <meta property="og:description" content="Real travel stories from 120+ countries. Hidden gems, honest guides, and wanderlust-fueled adventures."/>
+  <meta property="og:url" content="https://wanderlustblog.github.io/"/>
+  <meta property="og:image" content="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200&q=80"/>
+  <meta property="og:site_name" content="WanderLust Blog"/>
+  <meta property="og:locale" content="en_US"/>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@WanderLustBlog"/>
+  <meta name="twitter:title" content="WanderLust Blog — Authentic Travel Stories &amp; Guides"/>
+  <meta name="twitter:description" content="Real travel stories from 120+ countries."/>
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200&q=80"/>
+  <!-- Schema.org -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"WanderLust Blog","url":"https://wanderlustblog.github.io","description":"Authentic travel stories and guides from 120+ countries.","publisher":{"@type":"Organization","name":"WanderLust Blog","logo":{"@type":"ImageObject","url":"https://wanderlustblog.github.io/logo.svg"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"WanderLust Blog","url":"https://wanderlustblog.github.io","logo":"https://wanderlustblog.github.io/logo.svg","sameAs":["https://twitter.com/WanderLustBlog","https://instagram.com/WanderLustBlog","https://pinterest.com/WanderLustBlog","https://youtube.com/@WanderLustBlog"]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--terra:#c1593c;--deep:#0f0b07;--gold:#d4a853;--cream:#faf7f2;--sand:#f0e8da;--muted:#7a6d5e}
+    html{scroll-behavior:smooth}
+    body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--deep);overflow-x:hidden}
+    /* NAV */
+    nav{position:fixed;top:0;width:100%;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:0 4rem;height:70px;background:rgba(250,247,242,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(193,89,60,0.15)}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo svg{width:36px;height:36px;flex-shrink:0}
+    .logo-text{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--terra)}
+    .logo-text em{color:var(--gold);font-style:italic}
+    nav ul{list-style:none;display:flex;gap:0.2rem;align-items:center}
+    nav ul a{text-decoration:none;color:var(--deep);font-size:0.88rem;font-weight:500;padding:0.4rem 0.9rem;border-radius:2px;transition:all .2s;letter-spacing:.2px}
+    nav ul a:hover{color:var(--terra)}
+    nav ul a.active{background:var(--terra);color:#fff}
+    /* HERO */
+    .hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;padding-top:70px}
+    .hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 6rem;animation:fadeUp .9s ease both}
+    .eyebrow{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}
+    .eyebrow::before{content:'';display:inline-block;width:28px;height:1px;background:var(--terra)}
+    h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5.5vw,5rem);line-height:1.05;font-weight:600;margin-bottom:1.8rem}
+    h1 em{color:var(--terra);font-style:italic}
+    .hero-left p{color:var(--muted);line-height:1.85;font-size:1rem;max-width:430px;margin-bottom:2.8rem}
+    .btn-group{display:flex;gap:1rem;flex-wrap:wrap}
+    .btn{display:inline-block;padding:.8rem 2rem;font-size:.88rem;font-weight:500;text-decoration:none;border-radius:2px;letter-spacing:.3px;transition:all .2s;font-family:'Outfit',sans-serif}
+    .btn-p{background:var(--terra);color:#fff}
+    .btn-p:hover{background:#a84530;transform:translateY(-2px);box-shadow:0 8px 24px rgba(193,89,60,.3)}
+    .btn-s{background:transparent;color:var(--terra);border:1.5px solid var(--terra)}
+    .btn-s:hover{background:var(--terra);color:#fff}
+    .hero-right{position:relative;overflow:hidden}
+    .hero-right img,.hero-right video{width:100%;height:100%;object-fit:cover}
+    .hero-right::before{content:'';position:absolute;left:0;top:0;bottom:0;width:60px;background:linear-gradient(to right,var(--cream),transparent);z-index:2}
+    .hero-float{position:absolute;bottom:2.5rem;left:2rem;z-index:3;background:var(--deep);color:var(--cream);padding:1.2rem 1.8rem;box-shadow:6px 6px 0 var(--gold)}
+    .hero-float strong{display:block;font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);line-height:1}
+    .hero-float span{font-size:.78rem;color:#a09080}
+    /* TICKER */
+    .ticker{background:var(--terra);color:#fff;padding:.7rem 0;overflow:hidden}
+    .ticker-inner{display:flex;gap:4rem;white-space:nowrap;animation:tick 32s linear infinite;font-size:.75rem;letter-spacing:2px;text-transform:uppercase}
+    .ti::before{content:'✦  '}
+    @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    /* SECTION */
+    .sec{text-align:center;padding:5rem 2rem 3rem}
+    .sec .eyebrow{justify-content:center;margin-bottom:.8rem}
+    .sec h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600}
+    /* FEATURED */
+    .feat{max-width:1200px;margin:0 auto;padding:0 4rem}
+    .feat-grid{display:grid;grid-template-columns:1.2fr 1fr;overflow:hidden;border-radius:4px;box-shadow:0 8px 40px rgba(15,11,7,.12)}
+    .feat-img{position:relative;overflow:hidden;min-height:440px}
+    .feat-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+    .feat-grid:hover .feat-img img{transform:scale(1.04)}
+    .feat-body{background:var(--deep);color:var(--cream);padding:3.5rem;display:flex;flex-direction:column;justify-content:center}
+    .feat-body .tag{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+    .feat-body h2{font-family:'Cormorant Garamond',serif;font-size:2rem;line-height:1.2;margin-bottom:.8rem;font-weight:600}
+    .feat-body .meta{font-size:.78rem;color:#7a6d5e;margin-bottom:1rem}
+    .feat-body p{color:#a09080;line-height:1.75;font-size:.9rem;margin-bottom:1.5rem}
+    .btn-g{display:inline-block;padding:.7rem 1.8rem;background:var(--gold);color:var(--deep);font-size:.86rem;font-weight:600;text-decoration:none;border-radius:2px;transition:all .2s}
+    .btn-g:hover{background:#c09040}
+    /* POSTS GRID */
+    .pgrid{max-width:1200px;margin:0 auto;padding:0 4rem 4rem}
+    .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .pcard{background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 2px 16px rgba(15,11,7,.07);transition:transform .3s,box-shadow .3s}
+    .pcard:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(15,11,7,.13)}
+    .pcard a{text-decoration:none;color:inherit;display:block}
+    .pcard-img{position:relative;overflow:hidden;height:195px}
+    .pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .pcard:hover .pcard-img img{transform:scale(1.07)}
+    .cat-badge{position:absolute;top:1rem;left:1rem;background:var(--terra);color:#fff;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;padding:.3rem .7rem}
+    .pcard-body{padding:1.4rem}
+    .pcard-body h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1.3;margin-bottom:.5rem;font-weight:600}
+    .pcard-body p{font-size:.84rem;color:var(--muted);line-height:1.65;margin-bottom:.9rem}
+    .pmeta{display:flex;gap:.8rem;font-size:.74rem;color:var(--muted);align-items:center}
+    .dot{width:3px;height:3px;background:var(--muted);border-radius:50%;flex-shrink:0}
+    /* DESTINATIONS */
+    .dest{max-width:1200px;margin:0 auto;padding:0 4rem 5rem}
+    .mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:220px 220px;gap:.8rem}
+    .dtile{position:relative;overflow:hidden;border-radius:3px;cursor:pointer}
+    .dtile:nth-child(1){grid-column:span 2;grid-row:span 2}
+    .dtile:nth-child(4){grid-column:span 2}
+    .dtile img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .dtile:hover img{transform:scale(1.06)}
+    .dover{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,11,7,.72) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;color:#fff}
+    .dover h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600}
+    .dover span{font-size:.74rem;opacity:.75}
+    /* NEWSLETTER */
+    .nl{background:var(--deep);padding:6rem 6rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+    .nl-l h2{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--gold);line-height:1.15;margin-bottom:1rem}
+    .nl-l p{color:#a09080;line-height:1.8;font-size:.9rem}
+    .nl-stats{display:flex;gap:2rem;margin-top:2rem}
+    .nl-stat strong{display:block;font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold)}
+    .nl-stat span{font-size:.75rem;color:#6a5f52}
+    .nl-form{display:flex;margin-bottom:.8rem}
+    .nl-form input{flex:1;padding:.85rem 1.2rem;background:rgba(255,255,255,.08);border:1px solid rgba(212,168,83,.3);color:#fff;font-size:.9rem;outline:none;font-family:'Outfit',sans-serif}
+    .nl-form input::placeholder{color:#5a5048}
+    .nl-form button{padding:.85rem 1.5rem;background:var(--terra);color:#fff;border:none;cursor:pointer;font-size:.88rem;font-weight:500;font-family:'Outfit',sans-serif;transition:background .2s}
+    .nl-form button:hover{background:#a84530}
+    /* FOOTER */
+    footer{background:#060402;color:#5a5048;padding:3.5rem 4rem;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;font-size:.84rem}
+    footer h4{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+    footer ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+    footer ul a{text-decoration:none;color:#5a5048;transition:color .2s}
+    footer ul a:hover{color:var(--gold)}
+    .fb p{margin-top:.8rem;line-height:1.7;font-size:.82rem}
+    .fbot{background:#030201;color:#3a342c;padding:1rem 4rem;font-size:.77rem;display:flex;justify-content:space-between;align-items:center}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:900px){
+      nav{padding:0 1.5rem}
+      .hero{grid-template-columns:1fr}.hero-right{height:300px}.hero-left{padding:3rem 1.5rem}
+      .feat{padding:0 1.5rem}.feat-grid{grid-template-columns:1fr}.feat-img{min-height:240px}
+      .pgrid{padding:0 1.5rem 3rem}.g3{grid-template-columns:1fr}
+      .dest{padding:0 1.5rem 3rem}.mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+      .dtile:nth-child(1){grid-column:span 2;grid-row:span 1;height:220px}
+      .nl{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2rem}
+      footer{grid-template-columns:1fr 1fr;padding:2rem 1.5rem}
+      .fbot{flex-direction:column;gap:.5rem;padding:1rem 1.5rem;text-align:center}
+    }
+  </style>
 </head>
 <body>
-
-<nav id="siteNav">
-  <a href="index.html" class="nav-logo">
-    <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" fill="none" stroke="#17a696" stroke-width="2"/><path d="M20 8 L26 26 L20 21 L14 26 Z" fill="#17a696"/></svg>
-    <span>WanderLust</span>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TR9NWVPL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="WanderLust Blog Home">
+    <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="19" cy="19" r="18.5" fill="#c1593c"/>
+      <path d="M8 24 Q12 13 19 21 Q26 29 30 15" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="19" cy="9.5" r="3.2" fill="#d4a853"/>
+      <line x1="19" y1="12.7" x2="19" y2="21" stroke="#d4a853" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <span class="logo-text">Wander<em>Lust</em></span>
   </a>
   <ul>
-    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="blog.html" class="nav-cta">Read Stories →</a></li>
   </ul>
 </nav>
 
-<header class="hero">
-  <div class="hero-bg">
-    <video autoplay muted loop playsinline poster="hero-poster.jpg">
-      <source src="videos/hero-waterfall.mp4" type="video/mp4"/>
+<main>
+<section class="hero" aria-label="Welcome to WanderLust Blog">
+  <div class="hero-left">
+    <p class="eyebrow">Stories from the road</p>
+    <h1>Travel Far,<br><em>Live Deeper</em></h1>
+    <p>WanderLust brings you authentic travel stories, hidden gems, and wanderlust-fueled guides from every corner of the globe. Real journeys. Real people.</p>
+    <div class="btn-group">
+      <a href="blog.html" class="btn btn-p">Read Stories</a>
+      <a href="about.html" class="btn btn-s">About Us</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <video autoplay muted loop playsinline poster="hero-poster.jpg" aria-label="WanderLust travel highlights">
+      <source src="hero-video.mp4" type="video/mp4"/>
     </video>
-  </div>
-  <div class="hero-content">
-    <h1>Heed the call of the road<br>and <em>leave it all behind.</em></h1>
-    <div class="btn-row">
-      <a href="blog.html" class="btn btn-teal">Start Reading →</a>
-      <a href="about.html" class="btn btn-outline">Our Story</a>
-    </div>
-  </div>
-</header>
-
-<div class="search-wrap">
-  <form class="search-bar" id="storyFinder" onsubmit="return goFindStories(event)">
-    <div class="sf">
-      <label>Destination</label>
-      <input type="text" id="sfDest" placeholder="Try 'Iceland' or 'Bali'" autocomplete="off"/>
-    </div>
-    <div class="sf">
-      <label>Category</label>
-      <select id="sfCat">
-        <option value="all">All Stories</option>
-        <option value="europe">Europe</option>
-        <option value="asia">Asia</option>
-        <option value="africa">Africa</option>
-        <option value="americas">Americas</option>
-        <option value="oceania">Oceania</option>
-        <option value="tips">Travel Tips</option>
-      </select>
-    </div>
-    <div class="sf">
-      <label>Read Time</label>
-      <select id="sfLen">
-        <option value="any">Any Length</option>
-        <option value="short">Under 10 min</option>
-        <option value="long">10+ min</option>
-      </select>
-    </div>
-    <button type="submit" class="sf-btn">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-      Find Stories
-    </button>
-  </form>
-</div>
-
-<script>
-function goFindStories(e){
-  e.preventDefault();
-  const dest = document.getElementById('sfDest').value.trim();
-  const cat = document.getElementById('sfCat').value;
-  const params = new URLSearchParams();
-  if (cat && cat !== 'all') params.set('cat', cat);
-  if (dest) params.set('q', dest);
-  window.location.href = 'blog.html' + (params.toString() ? '?' + params.toString() : '');
-  return false;
-}
-</script>
-
-<section class="split reveal-stagger reveal">
-  <div class="split-l">
-    <svg class="compass" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" fill="none" stroke="#06231f" stroke-width="2"/><path d="M20 8 L26 26 L20 21 L14 26 Z" fill="#06231f"/></svg>
-    <h2>Wander <em>with us</em></h2>
-    <p>Four years, 120+ countries, and one honest promise: no filtered highlight reels. Just the missed buses, the unexpected kindnesses, and the meals that changed everything.</p>
-  </div>
-  <div class="split-r">
-    <div class="sr-card">
-      <div class="sr-img"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=700&q=80" alt="Real travel stories" loading="lazy"/></div>
-      <div class="sr-body">
-        <h3>Real Stories,<br>Not Highlight Reels</h3>
-        <p>We tell you when a place disappointed us, when we got scammed, and when we cried in an airport bathroom.</p>
-      </div>
-    </div>
-    <div class="sr-card">
-      <div class="sr-img"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=700&q=80" alt="Practical travel guides" loading="lazy"/></div>
-      <div class="sr-body">
-        <h3>Practical Guides<br>You Can Actually Use</h3>
-        <p>Route breakdowns, budgets, and timing — the details that turn a dream trip into a real itinerary.</p>
-      </div>
-    </div>
-    <div class="sr-card">
-      <div class="sr-img"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700&q=80" alt="Off the beaten path destinations" loading="lazy"/></div>
-      <div class="sr-body">
-        <h3>Off the Map,<br>On Purpose</h3>
-        <p>Our favourite places are the ones without Google reviews. We'll tell you exactly how to find them.</p>
-      </div>
-    </div>
+    <div class="hero-float"><strong>120+</strong><span>Countries Explored</span></div>
   </div>
 </section>
 
-<div class="sec-head reveal">
-  <h2>Latest <em>Adventures</em></h2>
-  <p>Hand-picked stories from the road — the ones that stuck with us long after we came home.</p>
-</div>
-<div class="adv-grid reveal-stagger reveal">
-  <article class="adv-card">
-    <a href="blog.html#post-1" style="text-decoration:none;color:inherit">
-      <div class="adv-img">
-        <img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=700&q=80" alt="Northern Lights Iceland" loading="lazy"/>
-        <div class="adv-tag"><p class="cat">Iceland</p><h3>Chasing the Northern Lights</h3></div>
-      </div>
-    </a>
-    <div class="adv-body">
-      <p>Nine days, one campervan, and the most surreal skies on Earth.</p>
-      <a href="blog.html#post-1" class="adv-arrow" aria-label="Read story">→</a>
-    </div>
-  </article>
-  <article class="adv-card">
-    <a href="blog.html#post-3" style="text-decoration:none;color:inherit">
-      <div class="adv-img">
-        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=700&q=80" alt="Kyoto cherry blossoms" loading="lazy"/>
-        <div class="adv-tag"><p class="cat">Japan</p><h3>Kyoto in Cherry Blossom Season</h3></div>
-      </div>
-    </a>
-    <div class="adv-body">
-      <p>A gentle guide to sakura magic without the crowds.</p>
-      <a href="blog.html#post-3" class="adv-arrow" aria-label="Read story">→</a>
-    </div>
-  </article>
-  <article class="adv-card">
-    <a href="blog.html#post-10" style="text-decoration:none;color:inherit">
-      <div class="adv-img">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700&q=80" alt="Patagonia trekking" loading="lazy"/>
-        <div class="adv-tag"><p class="cat">Patagonia</p><h3>Trekking Torres del Paine</h3></div>
-      </div>
-    </a>
-    <div class="adv-body">
-      <p>Wind that will knock you sideways, and towers too beautiful to feel real.</p>
-      <a href="blog.html#post-10" class="adv-arrow" aria-label="Read story">→</a>
-    </div>
-  </article>
-</div>
-
-<div class="offer-wrap">
-  <div class="sec-head reveal" style="padding-bottom:2.5rem">
-    <h2>What We <em>Write About</em></h2>
-    <p>Four threads run through everything on WanderLust — pick the one that matches your next trip.</p>
-  </div>
-  <div class="offer-grid reveal-stagger reveal">
-    <div class="off-card"><img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=500&q=80" alt="Hiking and trekking guides" loading="lazy"/><div class="off-label">Hiking &amp; Trekking</div></div>
-    <div class="off-card"><img src="https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=500&q=80" alt="Culture and cities" loading="lazy"/><div class="off-label">Culture &amp; Cities</div></div>
-    <div class="off-card"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80" alt="Food and local cuisine" loading="lazy"/><div class="off-label">Food &amp; Local Flavour</div></div>
-    <div class="off-card"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&q=80" alt="Road trips and driving routes" loading="lazy"/><div class="off-label">Road Trips</div></div>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ti">Santorini</span><span class="ti">Kyoto</span><span class="ti">Marrakech</span><span class="ti">Iceland</span><span class="ti">Bali</span><span class="ti">Rome</span><span class="ti">Patagonia</span><span class="ti">Maldives</span><span class="ti">Peru</span><span class="ti">Tokyo</span><span class="ti">Norway</span><span class="ti">Jordan</span><span class="ti">Sri Lanka</span><span class="ti">Morocco</span><span class="ti">New Zealand</span>
+    <span class="ti">Santorini</span><span class="ti">Kyoto</span><span class="ti">Marrakech</span><span class="ti">Iceland</span><span class="ti">Bali</span><span class="ti">Rome</span><span class="ti">Patagonia</span><span class="ti">Maldives</span><span class="ti">Peru</span><span class="ti">Tokyo</span><span class="ti">Norway</span><span class="ti">Jordan</span><span class="ti">Sri Lanka</span><span class="ti">Morocco</span><span class="ti">New Zealand</span>
   </div>
 </div>
 
-<section class="testi reveal">
-  <div class="testi-head"><h2>What Our <em>Readers Say</em></h2></div>
-  <div class="testi-grid reveal-stagger reveal">
-    <div class="t-card">
-      <div class="t-stars">★★★★★</div>
-      <p>"Followed the Kyoto guide almost step by step and it was the best trip of my life. No fluff, just real advice."</p>
-      <strong>— Reader, Instagram</strong>
+<div class="sec"><p class="eyebrow">Editor's Pick</p><h2>Featured Story</h2></div>
+<div class="feat">
+  <div class="feat-grid">
+    <div class="feat-img"><img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=900&q=80" alt="Northern Lights over Iceland — WanderLust Blog" loading="lazy"/></div>
+    <div class="feat-body">
+      <p class="tag">⭐ Featured · Iceland</p>
+      <h2>Chasing the Northern Lights Across Iceland's Ring Road</h2>
+      <p class="meta">April 22, 2026 &nbsp;·&nbsp; 14 min read &nbsp;·&nbsp; Maya Chen</p>
+      <p>Nine days, one campervan, and the most surreal skies on Earth. This is the story of our imperfect, magical drive around the entire island — where every breakdown led to an unexpected discovery.</p>
+      <a href="blog.html" class="btn-g">Read Full Story →</a>
     </div>
-    <div class="t-card">
-      <div class="t-stars">★★★★★</div>
-      <p>"The Iceland ring road post talked me out of a huge planning mistake. Saved us two days and a lot of stress."</p>
-      <strong>— Reader, Newsletter</strong>
+  </div>
+</div>
+
+<div class="sec"><p class="eyebrow">Latest from the journal</p><h2>Recent Explorations</h2></div>
+<div class="pgrid">
+  <div class="g3">
+    <article class="pcard" itemscope itemtype="https://schema.org/BlogPosting">
+      <a href="blog.html"><div class="pcard-img"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80" alt="Santorini hidden coves Greece" loading="lazy" itemprop="image"/><span class="cat-badge">Greece</span></div>
+      <div class="pcard-body"><h3 itemprop="headline">Hidden Coves of Santorini No Tourist Finds</h3><p>Beyond the blue domes lies a wild, unhurried island few ever discover.</p><div class="pmeta"><span itemprop="datePublished">Apr 18, 2026</span><span class="dot"></span><span>8 min</span></div></div></a>
+    </article>
+    <article class="pcard" itemscope itemtype="https://schema.org/BlogPosting">
+      <a href="blog.html"><div class="pcard-img"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" alt="Kyoto cherry blossom Japan" loading="lazy" itemprop="image"/><span class="cat-badge">Japan</span></div>
+      <div class="pcard-body"><h3 itemprop="headline">Kyoto in Cherry Blossom Season: A Gentle Guide</h3><p>How to experience sakura magic without the crowds and with a slower pace.</p><div class="pmeta"><span itemprop="datePublished">Apr 10, 2026</span><span class="dot"></span><span>11 min</span></div></div></a>
+    </article>
+    <article class="pcard" itemscope itemtype="https://schema.org/BlogPosting">
+      <a href="blog.html"><div class="pcard-img"><img src="https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=600&q=80" alt="Marrakech medina Morocco" loading="lazy" itemprop="image"/><span class="cat-badge">Morocco</span></div>
+      <div class="pcard-body"><h3 itemprop="headline">Lost in the Medina: Three Days in Marrakech</h3><p>Spice-scented alleys, rooftop tea, and the beautiful disorientation of Jemaa el-Fnaa.</p><div class="pmeta"><span itemprop="datePublished">Mar 29, 2026</span><span class="dot"></span><span>9 min</span></div></div></a>
+    </article>
+  </div>
+</div>
+
+<div class="sec" style="padding-top:2rem"><p class="eyebrow">Places we love</p><h2>Dream Destinations</h2></div>
+<div class="dest">
+  <div class="mosaic">
+    <div class="dtile"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Swiss Alps" loading="lazy"/><div class="dover"><h3>Swiss Alps</h3><span>12 stories</span></div></div>
+    <div class="dtile"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="Bali" loading="lazy"/><div class="dover"><h3>Bali</h3><span>8 stories</span></div></div>
+    <div class="dtile"><img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&q=80" alt="Rome" loading="lazy"/><div class="dover"><h3>Rome</h3><span>6 stories</span></div></div>
+    <div class="dtile"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80" alt="Tokyo" loading="lazy"/><div class="dover"><h3>Tokyo</h3><span>10 stories</span></div></div>
+    <div class="dtile"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80" alt="Patagonia" loading="lazy"/><div class="dover"><h3>Patagonia</h3><span>5 stories</span></div></div>
+  </div>
+</div>
+</main>
+
+<section class="nl" aria-label="Newsletter">
+  <div class="nl-l">
+    <h2>Never Miss an Adventure</h2>
+    <p>Join 85,000+ wanderers who get WanderLust's weekly travel stories, insider tips, and hidden gems straight to their inbox. No spam. Ever.</p>
+    <div class="nl-stats">
+      <div class="nl-stat"><strong>85K</strong><span>Subscribers</span></div>
+      <div class="nl-stat"><strong>340+</strong><span>Stories</span></div>
+      <div class="nl-stat"><strong>120+</strong><span>Countries</span></div>
     </div>
-    <div class="t-card">
-      <div class="t-stars">★★★★★</div>
-      <p>"Honestly the only travel blog I trust anymore. They tell you the bad parts too, which is rare."</p>
-      <strong>— Reader, Email</strong>
-    </div>
+  </div>
+  <div>
+    <p style="color:#a09080;margin-bottom:1rem;font-size:.9rem">Get WanderLust stories every week</p>
+    <div class="nl-form"><input type="email" placeholder="your@email.com" aria-label="Email address"/><button type="button">Subscribe</button></div>
+    <p style="font-size:.75rem;color:#5a4f42">✓ Free forever &nbsp;·&nbsp; ✓ Unsubscribe anytime &nbsp;·&nbsp; ✓ No spam</p>
   </div>
 </section>
 
-<footer class="cta">
-  <div class="cta-bg"></div>
-  <div class="cta-top">
-    <a href="index.html" class="nav-logo">
-      <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" fill="none" stroke="#17a696" stroke-width="2"/><path d="M20 8 L26 26 L20 21 L14 26 Z" fill="#17a696"/></svg>
-      <span>WanderLust</span>
-    </a>
+<footer>
+  <div class="fb">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--terra)">Wander<em style="color:var(--gold);font-style:italic">Lust</em></div>
+    <p>Authentic travel stories and guides from 120+ countries. Real journeys. Real people. Real adventures since 2021.</p>
+    <p style="margin-top:.6rem"><a href="mailto:wander.lustblog@outlook.com" style="color:#5a5048">wander.lustblog@outlook.com</a></p>
   </div>
-  <div class="cta-mid">
-    <h2>Never Miss an <em>Adventure</em></h2>
-    <p>New stories, straight to your inbox. No spam, ever.</p>
-    <div class="nl-inline">
-      <input type="email" placeholder="your@email.com" aria-label="Email address"/>
-      <button type="button" class="btn btn-teal">Subscribe</button>
-    </div>
-  </div>
-  <div class="foot-strip">
-    <div>
-      <p class="fs-h">Phone</p>
-      <p class="fs-b">Coming soon</p>
-    </div>
-    <div>
-      <p class="fs-h">Email</p>
-      <p class="fs-b"><a href="mailto:wander.lustblog@outlook.com">wander.lustblog@outlook.com</a></p>
-    </div>
-    <div>
-      <p class="fs-h">Social</p>
-      <div class="fs-social">
-        <a href="https://x.com/wanderlust_trl" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-        <a href="https://www.instagram.com/wanderluststories.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
-        <a href="https://www.facebook.com/profile.php?id=61593307527985" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></a>
-        <a href="https://www.pinterest.com/wanderlustblogtravel/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 3 5.6 3 9.9c0 2.6 1.4 4.6 3.6 5.4l.9-3.4s-.4-.8-.4-2.1c0-1.9 1.2-3.4 2.6-3.4 1.2 0 1.8.9 1.8 2 0 1.2-.8 3-1.2 4.7-.3 1.4.7 2.5 2.1 2.5 2.4 0 4.1-3.2 4.1-6.9 0-2.9-2-5-5.5-5-4 0-6.5 3-6.5 6.3 0 1.1.4 2 .9 2.6.2.3.3.4.2.7l-.3 1.1c-.1.3-.3.4-.6.3C1.9 14.5.5 12.5.5 9.9.5 5.6 4 2 9.5 2H12z"/></svg></a>
-      </div>
-    </div>
-  </div>
+  <div><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div><h4>Categories</h4><ul><li><a href="blog.html">Europe</a></li><li><a href="blog.html">Asia</a></li><li><a href="blog.html">Africa</a></li><li><a href="blog.html">Americas</a></li><li><a href="blog.html">Oceania</a></li></ul></div>
+  <div><h4>Follow Along</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Twitter / X</a></li><li><a href="#">YouTube</a></li><li><a href="#">Pinterest</a></li></ul></div>
 </footer>
-<div class="fbot"><span>© 2026 WanderLust Blog. All rights reserved.</span><span><a href="sitemap.html">Sitemap</a></span></div>
-
-<script>
-  window.addEventListener('scroll', () => {
-    document.getElementById('siteNav').classList.toggle('scrolled', window.scrollY > 40);
-  });
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-</script>
+<div class="fbot"><span>© 2026 WanderLust Blog. All rights reserved.</span><span>Made with ❤️ somewhere in the world</span></div>
 </body>
 </html>
