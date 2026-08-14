@@ -140,6 +140,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     footer ul a:hover{color:var(--gold)}
     .fb p{margin-top:.8rem;line-height:1.7;font-size:.82rem}
     .fbot{background:#030201;color:#3a342c;padding:1rem 4rem;font-size:.77rem;display:flex;justify-content:space-between;align-items:center}
+    /* VISA HOME SECTION */
+    .vhome{position:relative;padding:6rem 4rem;color:#fff;overflow:hidden}
+    .vhome-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+    .vhome::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(15,11,7,.65),rgba(15,11,7,.8));z-index:1}
+    .vhome-in{position:relative;z-index:2;max-width:640px;margin:0 auto;text-align:center}
+    .vhome-in .eyebrow{justify-content:center;color:var(--gold)}
+    .vhome-in .eyebrow::before{background:var(--gold)}
+    .vhome-in h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:600;margin-bottom:1rem}
+    .vhome-in p{color:#e8ddd0;line-height:1.8;font-size:.95rem;margin-bottom:2rem}
+    @media(max-width:900px){.vhome{padding:4rem 1.5rem}}
     /* TESTIMONIALS */
     .testi{position:relative;padding:6rem 4rem;color:#fff;overflow:hidden}
     .testi-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
@@ -265,6 +275,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </main>
 
+<section class="vhome" aria-label="Visa and travel requirements">
+  <video class="vhome-bg" autoplay muted loop playsinline aria-hidden="true">
+    <source src="visa-video.mp4" type="video/mp4"/>
+  </video>
+  <div class="vhome-in">
+    <p class="eyebrow">Plan ahead</p>
+    <h2>Visa &amp; Travel Requirements</h2>
+    <p>Every destination has its own rules. Get the practical breakdown of visa types, documents, and processing times — based on what we've actually navigated on our own trips.</p>
+    <a href="visa.html" class="btn btn-p">Read the Visa Guide →</a>
+  </div>
+</section>
+
 <section class="testi" aria-label="Client testimonials">
   <video class="testi-bg" autoplay muted loop playsinline aria-hidden="true">
     <source src="testi-video.mp4" type="video/mp4"/>
@@ -314,7 +336,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="visa.html">Visa Guide</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
   <div><h4>Categories</h4><ul><li><a href="blog.html">Europe</a></li><li><a href="blog.html">Asia</a></li><li><a href="blog.html">Africa</a></li><li><a href="blog.html">Americas</a></li><li><a href="blog.html">Oceania</a></li></ul></div>
-  <div><h4>Follow Along</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Twitter / X</a></li><li><a href="#">YouTube</a></li><li><a href="#">Pinterest</a></li></ul></div>
+  <div><h4>Follow Along</h4><ul><li><a href="https://www.instagram.com/wanderluststories.co/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://x.com/wanderlust_trl" target="_blank" rel="noopener">Twitter / X</a></li><li><a href="https://www.facebook.com/profile.php?id=61593307527985" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.pinterest.com/wanderlustblogtravel/" target="_blank" rel="noopener">Pinterest</a></li><li><a href="https://www.linkedin.com/company/wandertravellust" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.tumblr.com/wanderlustblogtravel" target="_blank" rel="noopener">Tumblr</a></li><li><a href="https://mastodon.social/@wanderbloglust" target="_blank" rel="noopener">Mastodon</a></li><li><a href="https://bsky.app/profile/wander-lustblog.bsky.social" target="_blank" rel="noopener">Bluesky</a></li></ul></div>
 </footer>
 <div class="fbot"><span>© 2026 WanderLust Blog. All rights reserved.</span><span>Made with ❤️ somewhere in the world</span></div>
 </body>
