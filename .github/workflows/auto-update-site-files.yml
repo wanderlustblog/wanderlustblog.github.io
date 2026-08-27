@@ -1,0 +1,53 @@
+name: Auto-update sitemap, sidemap, llms.txt & GTM
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+  schedule:
+    # Runs once a day at 03:00 UTC in case pages changed outside a push
+    # (e.g. edited directly on GitHub without a fresh commit trigger elsewhere)
+    - cron: "0 3 * * *"
+
+# Avoid two runs stepping on each other and racing to commit
+concurrency:
+  group: auto-update-site-files
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    # Skip when the triggering commit was made by this workflow itself,
+    # to avoid an infinite push -> workflow -> push loop.
+    if: >-
+      github.event_name != 'push' ||
+      !contains(github.event.head_commit.message, '[skip ci]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate sitemap.xml, sidemap.html, llms.txt & inject GTM
+        run: python scripts/generate_site_files.py
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml sidemap.html llms.txt robots.txt
+          git add -u -- '*.html'
+          if git diff --cached --quiet; then
+            echo "Nothing changed — skipping commit."
+          else
+            git commit -m "chore: auto-update sitemap, sidemap, llms.txt [skip ci]"
+            git push
+          fi
