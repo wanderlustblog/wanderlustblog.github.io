@@ -1,0 +1,29 @@
+# WanderLust Blog
+
+> Authentic travel stories and practical visa guides from 120+ countries. Real journeys, honest writing, and no sponsored fluff.
+
+## Main Pages
+
+- [About WanderLust Blog — Our Story, Team & Travel Philosophy](https://wanderlustblog.github.io/about.html): Meet the WanderLust Blog team — Maya Chen, Luca Ferretti & Priya Nair. Learn our travel philosophy and the story behind 120+ countries, 340+ stories, and 85K readers worldwide.
+- [Travel Guides & Stories From 20 Real Trips | WanderLust](https://wanderlustblog.github.io/blog.html): Real travel guides and honest stories from 20+ destinations — Iceland, Japan, Peru, Bali, Kenya, Norway and more. Itineraries and tips for your next trip.
+- [Contact WanderLust Blog — Get in Touch With Our Travel Team](https://wanderlustblog.github.io/contact.html): Contact the WanderLust Blog team for collaborations, press enquiries, guest posts, or just to say hello. We read every message and reply within 48 hours.
+- [WanderLust Blog — Authentic Travel Stories & Guides From Around the World](https://wanderlustblog.github.io/): WanderLust is a travel blog sharing authentic stories, hidden gems, and in-depth guides from 120+ countries. Real journeys. Real people. Real adventures.
+- [Visa & Travel Requirements Guide | WanderLust Blog](https://wanderlustblog.github.io/visa.html): A practical guide to visas and entry requirements for travelers — visa types, documents needed, processing times, and tips from WanderLust's own trips.
+
+## Visa Guides
+
+- [Business Visa Requirements: What You Actually Need | WanderLust Blog](https://wanderlustblog.github.io/visa/business-visa-requirements.html): What are the real business visa requirements for work trips abroad — invitation letters, proof of purpose, and how it differs from a standard work visa.
+- [Digital Nomad Visa: What It Is & How to Get One (2026) | WanderLust Blog](https://wanderlustblog.github.io/visa/digital-nomad-visa.html): What is a digital nomad visa, which countries offer one, and how do you actually qualify? A clear, practical breakdown for remote workers planning to travel long-term.
+- [DS-160 Form Mistakes That Delay or Deny Your US Visa | WanderLust Blog](https://wanderlustblog.github.io/visa/ds160-form-mistakes.html): The most common DS-160 form mistakes that cause US visa delays or denials — and how to catch them before you submit.
+- [Multiple Entry Visa: What It Is & When You Need One | WanderLust Blog](https://wanderlustblog.github.io/visa/multiple-entry-visa.html): What's the difference between a single entry and multiple entry visa? A clear breakdown of who needs one, how they work, and how to avoid getting stuck at the border.
+- [Spouse Visa Requirements: What Couples Actually Need | WanderLust Blog](https://wanderlustblog.github.io/visa/spouse-visa-requirements.html): What are the real spouse visa requirements to move abroad with a partner — proof of relationship, income thresholds, and the documents that take longest.
+- [Student Visa Requirements: What You Actually Need | WanderLust Blog](https://wanderlustblog.github.io/visa/student-visa-requirements.html): What are the real student visa requirements for studying abroad — acceptance letters, proof of funds, health checks, and the steps that actually take time.
+- [Transit Visa Rules: When You Need One for a Layover | WanderLust Blog](https://wanderlustblog.github.io/visa/transit-visa-rules.html): Do you need a transit visa for your layover? A clear breakdown of transit visa rules, which airports require them, and how to avoid getting caught out.
+- [US Visa Interview Dress Code: What to Actually Wear | WanderLust Blog](https://wanderlustblog.github.io/visa/us-visa-dress-code.html): Is there a real dress code for a US visa interview? What officers actually notice, what to wear, and what to avoid — without the overthinking.
+- [Visa Extension: How to Extend Your Stay Legally | WanderLust Blog](https://wanderlustblog.github.io/visa/visa-extension.html): Can you extend a tourist visa? A clear breakdown of how visa extensions actually work, what you need, and what happens if you overstay instead.
+- [Visa Interview Tips: How to Actually Prepare | WanderLust Blog](https://wanderlustblog.github.io/visa/visa-interview-tips.html): What actually happens in a visa interview, what officers are really assessing, and practical tips to prepare — without the generic advice you've already heard.
+- [Visa on Arrival Countries: What to Know Before You Land | WanderLust Blog](https://wanderlustblog.github.io/visa/visa-on-arrival-countries.html): Which countries offer visa on arrival, what you'll need at the airport, and where it can go wrong. A practical guide before you rely on it.
+- [How Long Does a Tourist Visa Take to Process? (2026 Guide) | WanderLust Blog](https://wanderlustblog.github.io/visa/visa-processing-time.html): How long does a tourist visa take to process? A clear breakdown by visa type — e-visa, visa-on-arrival, and standard applications — plus tips to avoid delays.
+- [Visa Rejection Reasons: Why Applications Actually Get Denied | WanderLust Blog](https://wanderlustblog.github.io/visa/visa-rejection-reasons.html): Why do visa applications get rejected? The real, common reasons behind visa denials, and what to do if it happens to you before reapplying.
+- [Visa Requirements by Country: The Full Guide (2026) | WanderLust Blog](https://wanderlustblog.github.io/visa/visa-requirements-all-countries.html): A country-by-country breakdown of visa requirements — which destinations are visa-free, which need an e-visa, and which require advance applications.
+- [Work Visa Requirements: What Employers & Applicants Need | WanderLust Blog](https://wanderlustblog.github.io/visa/work-visa-requirements.html): What are the real work visa requirements for working abroad — job offers, sponsorship, qualifications, and the steps that actually take the longest.
