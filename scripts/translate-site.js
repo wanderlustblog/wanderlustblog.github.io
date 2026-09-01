@@ -124,14 +124,16 @@ function findHtmlFiles() {
 async function translateBatch(texts, targetLang) {
   if (texts.length === 0) return [];
   const params = new URLSearchParams();
-  params.append("auth_key", DEEPL_API_KEY);
   params.append("target_lang", targetLang.toUpperCase());
   params.append("tag_handling", "html");
   texts.forEach((t) => params.append("text", t));
 
   const res = await fetch(DEEPL_ENDPOINT, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": `DeepL-Auth-Key ${DEEPL_API_KEY}`,
+    },
     body: params,
   });
 
