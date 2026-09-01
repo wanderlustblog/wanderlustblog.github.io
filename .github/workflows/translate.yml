@@ -1,0 +1,70 @@
+name: Auto-translate site
+
+# Runs whenever you push changes to your English source pages on main.
+# Also runnable manually from the Actions tab (workflow_dispatch).
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.html"
+      - "!es/**"
+      - "!fr/**"
+      - "!de/**"
+      - "!pt/**"
+      - "!it/**"
+      - "!ja/**"
+      - "!zh-CN/**"
+      - "!ko/**"
+      - "!ru/**"
+      - "!ar/**"
+      - "!nl/**"
+      - "!pl/**"
+      - "!tr/**"
+      - "!uk/**"
+      - "!sv/**"
+      - "!da/**"
+      - "!fi/**"
+      - "!el/**"
+      - "!cs/**"
+      - "!ro/**"
+      - "!hu/**"
+      - "!id/**"
+  workflow_dispatch: {}
+
+concurrency:
+  group: auto-translate-site
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    if: >-
+      github.event_name != 'push' ||
+      !contains(github.event.head_commit.message, '[skip ci]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run translation script
+        env:
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
+        run: npm run translate
+
+      - name: Commit translated pages
+        run: |
+          git config user.name "wanderlust-translate-bot"
+          git config user.email "actions@github.com"
+          git add -A -- es fr de pt it ja zh-CN ko ru ar nl pl tr uk sv da fi el cs ro hu id scripts/.translation-cache.json
+          git diff --cached --quiet || git commit -m "chore: auto-translate site content [skip ci]"
+          git push
