@@ -1,0 +1,13 @@
+{
+  "name": "wanderlust-i18n",
+  "version": "1.0.0",
+  "description": "Auto-translates WanderLust Blog's English HTML pages into multiple languages and injects hreflang tags.",
+  "private": true,
+  "scripts": {
+    "translate": "node scripts/translate-site.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "node-fetch": "^2.7.0"
+  }
+}
