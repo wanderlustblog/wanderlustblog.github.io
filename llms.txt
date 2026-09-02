@@ -5,7 +5,7 @@
 ## Main Pages
 
 - [About WanderLust Blog — Our Story, Team & Travel Philosophy](https://wanderlustblog.github.io/about.html): Meet the WanderLust Blog team — Maya Chen, Luca Ferretti & Priya Nair. Learn our travel philosophy and the story behind 120+ countries, 340+ stories, and 85K readers worldwide.
-- [Travel Guides & Stories From 40 Real Trips | WanderLust](https://wanderlustblog.github.io/blog.html): Real travel guides and honest stories from 24+ destinations — Iceland, Japan, Peru, Bali, Kenya, Norway, Madagascar and more. Itineraries and tips for your next trip.
+- [Travel Guides & Stories From 41 Real Trips | WanderLust](https://wanderlustblog.github.io/blog.html): Real travel guides and honest stories from 24+ destinations — Iceland, Japan, Peru, Bali, Kenya, Norway, Madagascar and more. Itineraries and tips for your next trip.
 - [Contact WanderLust Blog — Get in Touch With Our Travel Team](https://wanderlustblog.github.io/contact.html): Contact the WanderLust Blog team for collaborations, press enquiries, guest posts, or just to say hello. We read every message and reply within 48 hours.
 - [WanderLust Blog — Authentic Travel Stories & Guides From Around the World](https://wanderlustblog.github.io/): WanderLust is a travel blog sharing authentic stories, hidden gems, and in-depth guides from 120+ countries. Real journeys. Real people. Real adventures.
 - [Visa & Travel Requirements Guide | WanderLust Blog](https://wanderlustblog.github.io/visa.html): A practical guide to visas and entry requirements for travelers — visa types, documents needed, processing times, and tips from WanderLust's own trips.
