@@ -36,6 +36,9 @@ const LANGUAGES = {
   pt: "pt-BR",    // Portuguese (Brazilian)
   ja: "ja",       // Japanese
   "zh-CN": "zh",  // Chinese (Simplified)
+  ar: "ar",       // Arabic
+  ru: "ru",       // Russian
+  ko: "ko",       // Korean
 };
 
 const DEEPL_API_KEY = process.env.DEEPL_API_KEY;
@@ -63,6 +66,9 @@ const EXCLUDE_FILENAMES = new Set(["sidemap.html", "404.html"]);
 
 // Filename prefixes we never translate/copy (site-verification files etc.)
 const EXCLUDE_PREFIXES = ["google", "yandex_", "pinterest-", "bing", "BingSiteAuth"];
+
+// Languages that read right-to-left — their <html> tag needs dir="rtl"
+const RTL_LANGUAGES = new Set(["ar"]);
 
 const SKIP_TAGS = new Set(["script", "style", "code", "pre"]);
 
@@ -219,6 +225,16 @@ async function translateHtmlFile(srcPath, targetLang, allRelPaths) {
     }
   });
 
+  // Set correct <html lang="..."> and dir="rtl" for RTL languages so the
+  // page renders in the right reading direction and browsers/screen
+  // readers know what language they're looking at.
+  $("html").attr("lang", targetLang === "zh-CN" ? "zh-CN" : targetLang);
+  if (RTL_LANGUAGES.has(targetLang)) {
+    $("html").attr("dir", "rtl");
+  } else {
+    $("html").removeAttr("dir");
+  }
+
   return $.html();
 }
 
@@ -279,19 +295,21 @@ async function main() {
     const currentHash = hashContent(sourceHtml);
     const cachedHash = cache[relPath];
 
-    // Also re-translate if any language's output file is missing, even if
-    // the hash matches (covers the "just added a new language" case).
-    const missingSomeOutput = Object.keys(LANGUAGES).some(
-      (lang) => !fs.existsSync(path.join(SITE_ROOT, lang, relPath))
-    );
+    // Only translate languages that are actually missing or stale for this
+    // page — if you add a new language later, already-translated languages
+    // for existing pages won't be wastefully re-translated.
+    const langsNeeded = Object.keys(LANGUAGES).filter((lang) => {
+      if (cachedHash !== currentHash) return true; // content changed, redo all
+      return !fs.existsSync(path.join(SITE_ROOT, lang, relPath)); // missing only
+    });
 
-    if (cachedHash === currentHash && !missingSomeOutput) {
+    if (langsNeeded.length === 0) {
       console.log(`Unchanged, skipping: ${relPath}`);
       skippedCount++;
       continue;
     }
 
-    for (const lang of Object.keys(LANGUAGES)) {
+    for (const lang of langsNeeded) {
       const outPath = path.join(SITE_ROOT, lang, relPath);
       fs.mkdirSync(path.dirname(outPath), { recursive: true });
 
