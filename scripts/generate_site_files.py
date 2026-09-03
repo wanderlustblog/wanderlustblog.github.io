@@ -116,8 +116,6 @@ def category_for(rel_path):
 
 def priority_for(rel_path):
     lang, rest = split_lang_prefix(rel_path)
-    # Translated pages are valuable but the English originals stay the
-    # canonical/highest-priority version for crawl budget purposes.
     base = 0.9 if lang else 1.0
 
     if rest == "index.html":
