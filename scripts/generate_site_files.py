@@ -20,6 +20,10 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 GTM_ID = "GTM-TR9NWVPL"
 
+# Language folders created by the translation pipeline (scripts/translate-site.js).
+# Kept in sync with the LANGUAGES keys there.
+LANGUAGE_CODES = {"es", "fr", "de", "pt", "ja", "zh-CN", "ar", "ru", "ko"}
+
 GTM_SCRIPT = f"""  <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
 new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
@@ -65,23 +69,35 @@ def find_html_files():
 
 def extract_meta(html):
     title_m = re.search(r"<title>(.*?)</title>", html, re.DOTALL | re.IGNORECASE)
-    # Use a backreference so an apostrophe inside a double-quoted attribute
-    # (e.g. content="What's the difference...") doesn't prematurely end the match.
     desc_m = re.search(
         r'<meta\s+name=["\']description["\']\s+content=(["\'])(.*?)\1',
         html, re.IGNORECASE | re.DOTALL,
     )
     title = re.sub(r"\s+", " ", title_m.group(1)).strip() if title_m else ""
     desc = re.sub(r"\s+", " ", desc_m.group(2)).strip() if desc_m else ""
-    # Titles/descriptions are pulled from HTML attributes, so &amp; etc. need
-    # unescaping for plain-text/Markdown output (llms.txt, sidemap link text).
     for a, b in (("&amp;", "&"), ("&quot;", '"'), ("&#39;", "'"), ("&lt;", "<"), ("&gt;", ">")):
         title = title.replace(a, b)
         desc = desc.replace(a, b)
     return title, desc
 
 
+def split_lang_prefix(rel_path):
+    """
+    If rel_path starts with a translated-language folder (e.g. "es/blog/x.html"),
+    return (lang_code, rest_of_path). Otherwise return (None, rel_path).
+    """
+    parts = rel_path.split("/", 1)
+    if len(parts) == 2 and parts[0] in LANGUAGE_CODES:
+        return parts[0], parts[1]
+    return None, rel_path
+
+
 def url_for(rel_path):
+    lang, rest = split_lang_prefix(rel_path)
+    if lang:
+        if rest == "index.html":
+            return f"{SITE_URL}/{lang}/"
+        return f"{SITE_URL}/{lang}/{rest}"
     if rel_path == "index.html":
         return f"{SITE_URL}/"
     if rel_path == "visa.html":
@@ -90,21 +106,32 @@ def url_for(rel_path):
 
 
 def category_for(rel_path):
-    if rel_path.startswith("visa/"):
+    _lang, rest = split_lang_prefix(rel_path)
+    if rest.startswith("visa/"):
         return "Visa Guides"
-    if rel_path.startswith("blog/"):
+    if rest.startswith("blog/"):
         return "Blog Posts"
     return "Main Pages"
 
 
 def priority_for(rel_path):
-    if rel_path == "index.html":
-        return "1.0"
-    if rel_path in ("visa.html", "blog.html"):
-        return "0.9"
-    if rel_path.startswith("visa/") or rel_path.startswith("blog/"):
-        return "0.7"
-    return "0.6"
+    lang, rest = split_lang_prefix(rel_path)
+    # Translated pages are valuable but the English originals stay the
+    # canonical/highest-priority version for crawl budget purposes.
+    base = 0.9 if lang else 1.0
+
+    if rest == "index.html":
+        p = 1.0
+    elif rest in ("visa.html", "blog.html"):
+        p = 0.9
+    elif rest.startswith("visa/") or rest.startswith("blog/"):
+        p = 0.7
+    else:
+        p = 0.6
+
+    if lang:
+        p = round(p * base, 2)
+    return f"{p:.1f}"
 
 
 # ---------------------------------------------------------------------------
