@@ -53,6 +53,10 @@ jobs:
         run: |
           git config user.name "wanderlust-translate-bot"
           git config user.email "actions@github.com"
-          git add -A -- es fr de pt ja zh-CN ar ru ko scripts/.translation-cache.json
+          for path in es fr de pt ja zh-CN ar ru ko scripts/.translation-cache.json; do
+            if [ -e "$path" ]; then
+              git add -A -- "$path"
+            fi
+          done
           git diff --cached --quiet || git commit -m "chore: auto-translate site content [skip ci]"
           git push
