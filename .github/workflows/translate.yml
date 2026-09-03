@@ -13,6 +13,9 @@ on:
       - "!pt/**"
       - "!ja/**"
       - "!zh-CN/**"
+      - "!ar/**"
+      - "!ru/**"
+      - "!ko/**"
   workflow_dispatch: {}
 
 concurrency:
@@ -50,6 +53,6 @@ jobs:
         run: |
           git config user.name "wanderlust-translate-bot"
           git config user.email "actions@github.com"
-          git add -A -- es fr de pt ja zh-CN scripts/.translation-cache.json
+          git add -A -- es fr de pt ja zh-CN ar ru ko scripts/.translation-cache.json
           git diff --cached --quiet || git commit -m "chore: auto-translate site content [skip ci]"
           git push
