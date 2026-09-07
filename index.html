@@ -46,12 +46,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     nav{position:fixed;top:0;width:100%;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:0 4rem;height:70px;background:rgba(250,247,242,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(193,89,60,0.15)}
     .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
     .nav-logo svg{width:36px;height:36px;flex-shrink:0}
-    .logo-text{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--terra)}
+    .logo-text{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--terra);line-height:1}
     .logo-text em{color:var(--gold);font-style:italic}
+    .nav-logo{align-items:center}
+    .logo-stack{display:flex;flex-direction:column;line-height:1}
+    .logo-tag{font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
     nav ul{list-style:none;display:flex;gap:0.2rem;align-items:center}
     nav ul a{text-decoration:none;color:var(--deep);font-size:0.88rem;font-weight:500;padding:0.4rem 0.9rem;border-radius:2px;transition:all .2s;letter-spacing:.2px}
     nav ul a:hover{color:var(--terra)}
     nav ul a.active{background:var(--terra);color:#fff}
+    .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;background:none;border:none;cursor:pointer;padding:0}
+    .nav-toggle span{display:block;width:100%;height:2px;background:var(--deep);border-radius:2px;transition:transform .25s,opacity .25s}
+    .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-toggle.open span:nth-child(2){opacity:0}
+    .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
     /* HERO */
     .hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;padding-top:70px}
     .hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 6rem;animation:fadeUp .9s ease both}
@@ -110,13 +118,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .pmeta{display:flex;gap:.8rem;font-size:.74rem;color:var(--muted);align-items:center}
     .dot{width:3px;height:3px;background:var(--muted);border-radius:50%;flex-shrink:0}
     /* DESTINATIONS */
-    .dest{max-width:1200px;margin:0 auto;padding:0 4rem 5rem}
+    .dest{position:relative;padding:5rem 4rem;overflow:hidden}
+    .dest-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+    .dest::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,11,7,.55),rgba(15,11,7,.75));z-index:1}
+    .dest-in{position:relative;z-index:2;max-width:1200px;margin:0 auto}
+    .dest .sec{color:#fff;padding:0 0 2.5rem}
+    .dest .sec .eyebrow{color:var(--gold)}
+    .dest .sec .eyebrow::before{background:var(--gold)}
     .mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:220px 220px;gap:.8rem}
-    .dtile{position:relative;overflow:hidden;border-radius:3px;cursor:pointer}
+    .dtile{position:relative;overflow:hidden;border-radius:3px;cursor:pointer;display:block}
     .dtile:nth-child(1){grid-column:span 2;grid-row:span 2}
     .dtile:nth-child(4){grid-column:span 2}
     .dtile img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-    .dtile:hover img{transform:scale(1.06)}
+    .dtile:hover img,.dtile:focus-visible img{transform:scale(1.06)}
+    .dtile:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
     .dover{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,11,7,.72) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;color:#fff}
     .dover h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600}
     .dover span{font-size:.74rem;opacity:.75}
@@ -149,7 +164,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .vhome-in .eyebrow::before{background:var(--gold)}
     .vhome-in h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:600;margin-bottom:1rem}
     .vhome-in p{color:#e8ddd0;line-height:1.8;font-size:.95rem;margin-bottom:2rem}
-    @media(max-width:900px){.vhome{padding:4rem 1.5rem}}
     /* TESTIMONIALS */
     .testi{position:relative;padding:6rem 4rem;color:#fff;overflow:hidden}
     .testi-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
@@ -164,20 +178,79 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .tstars{color:var(--gold);letter-spacing:2px;margin-bottom:1rem;font-size:.9rem}
     .tcard p{color:#e8ddd0;line-height:1.75;font-size:.88rem;margin-bottom:1.2rem}
     .tcard strong{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold)}
-    @media(max-width:900px){
-      .testi{padding:4rem 1.5rem}.testi-grid{grid-template-columns:1fr;gap:1.5rem}
-    }
     @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ===== MOBILE OPTIMIZATION ===== */
     @media(max-width:900px){
-      nav{padding:0 1.5rem}
-      .hero{grid-template-columns:1fr}.hero-right{height:300px}.hero-left{padding:3rem 1.5rem}
-      .feat{padding:0 1.5rem}.feat-grid{grid-template-columns:1fr}.feat-img{min-height:240px}
-      .pgrid{padding:0 1.5rem 3rem}.g3{grid-template-columns:1fr}
-      .dest{padding:0 1.5rem 3rem}.mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+      nav{padding:0 1.2rem;height:60px}
+      .nav-logo svg{width:30px;height:30px}
+      .logo-text{font-size:1.25rem}
+      .nav-toggle{display:flex}
+      nav ul{position:fixed;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--cream);border-bottom:1px solid rgba(193,89,60,.15);box-shadow:0 12px 24px rgba(15,11,7,.08);max-height:0;overflow:hidden;transition:max-height .3s ease;z-index:998}
+      nav ul.open{max-height:340px}
+      nav ul a{width:100%;padding:.9rem 1.5rem;font-size:.95rem;border-radius:0;border-bottom:1px solid rgba(193,89,60,.08)}
+      nav ul a.active{background:transparent;color:var(--terra)}
+      .hero{grid-template-columns:1fr;min-height:auto}
+      .hero-left{padding:2.5rem 1.5rem 2rem;order:2}
+      .hero-right{height:280px;order:1}
+      .hero-right::before{width:30px}
+      .hero-float{left:1rem;bottom:1.2rem;padding:.9rem 1.3rem}
+      .hero-float strong{font-size:1.7rem}
+      h1{font-size:clamp(2.2rem,9vw,3rem)}
+      .hero-left p{font-size:.92rem;margin-bottom:2rem}
+      .btn{padding:.75rem 1.6rem;font-size:.82rem}
+      .ticker{padding:.55rem 0}
+      .feat{padding:0 1.2rem}
+      .feat-grid{grid-template-columns:1fr}
+      .feat-img{min-height:220px}
+      .feat-body{padding:2rem 1.5rem}
+      .feat-body h2{font-size:1.6rem}
+      .pgrid{padding:0 1.2rem 3rem}
+      .g3{grid-template-columns:1fr;gap:1.2rem}
+      .sec{padding:3rem 1.2rem 2rem}
+      .sec h2{font-size:1.8rem}
+      .dest{padding:3.5rem 1.2rem}
+      .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:.6rem}
+      .dtile{height:170px}
       .dtile:nth-child(1){grid-column:span 2;grid-row:span 1;height:220px}
-      .nl{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2rem}
-      footer{grid-template-columns:1fr 1fr;padding:2rem 1.5rem}
-      .fbot{flex-direction:column;gap:.5rem;padding:1rem 1.5rem;text-align:center}
+      .dtile:nth-child(4){grid-column:span 1}
+      .dover h3{font-size:1.25rem}
+      .vhome{padding:3.5rem 1.2rem}
+      .vhome-in h2{font-size:1.9rem}
+      .testi{padding:3.5rem 1.2rem}
+      .testi-head h2{font-size:1.9rem}
+      .testi-grid{grid-template-columns:1fr;gap:1.2rem}
+      .tcard{padding:1.5rem}
+      .nl{grid-template-columns:1fr;padding:2.5rem 1.2rem;gap:1.8rem}
+      .nl-l h2{font-size:2rem}
+      .nl-stats{gap:1.2rem;flex-wrap:wrap}
+      footer{grid-template-columns:1fr 1fr;padding:2rem 1.2rem;gap:1.8rem}
+      .fbot{flex-direction:column;gap:.5rem;padding:1rem 1.2rem;text-align:center}
+    }
+    @media(max-width:640px){
+      .btn-group{flex-direction:column;align-items:stretch}
+      .btn{text-align:center}
+      .ticker-inner{gap:2rem;font-size:.68rem}
+      .eyebrow{font-size:.62rem;letter-spacing:2.5px}
+      footer{grid-template-columns:1fr;text-align:left;gap:2rem}
+    }
+    @media(max-width:480px){
+      body{overflow-x:hidden;font-size:.96rem}
+      .btn{padding:.85rem 1.6rem;font-size:.85rem}
+      nav ul a{padding:1rem 1.5rem;font-size:1rem}
+      .hero-left{padding:2rem 1.1rem 1.5rem}
+      .hero-left p{max-width:100%}
+      .hero-right{height:230px}
+      h1{font-size:clamp(2rem,10vw,2.6rem)}
+      .mosaic{grid-template-columns:1fr}
+      .dtile:nth-child(1),.dtile:nth-child(4){grid-column:span 1}
+      .dtile{height:200px}
+      .feat-body{padding:1.6rem 1.2rem}
+      .feat-body p{font-size:.85rem}
+      .vhome-in p,.testi p{font-size:.88rem}
+      .nl-form{flex-direction:column;gap:.6rem}
+      .nl-form button{width:100%}
+      .nl-stat strong{font-size:1.6rem}
     }
   </style>
 </head>
@@ -188,15 +261,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <nav>
   <a href="index.html" class="nav-logo" aria-label="WanderLust Blog Home">
-    <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="19" cy="19" r="18.5" fill="#c1593c"/>
-      <path d="M8 24 Q12 13 19 21 Q26 29 30 15" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="19" cy="9.5" r="3.2" fill="#d4a853"/>
-      <line x1="19" y1="12.7" x2="19" y2="21" stroke="#d4a853" stroke-width="1.6" stroke-linecap="round"/>
+    <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="48" cy="48" r="46" fill="#faf7f2"/>
+      <g transform="translate(48,48)">
+        <circle cx="0" cy="0" r="34" fill="none" stroke="#c1593c" stroke-width="5"/>
+        <line x1="0" y1="-38" x2="0" y2="-26" stroke="#c1593c" stroke-width="4"/>
+        <line x1="0" y1="26" x2="0" y2="38" stroke="#c1593c" stroke-width="4"/>
+        <line x1="-38" y1="0" x2="-26" y2="0" stroke="#c1593c" stroke-width="4"/>
+        <line x1="26" y1="0" x2="38" y2="0" stroke="#c1593c" stroke-width="4"/>
+        <path d="M0 -21 L11 10 L0 1 L-11 10 Z" fill="#c1593c"/>
+        <circle cx="0" cy="0" r="5.5" fill="#d4a853"/>
+      </g>
     </svg>
-    <span class="logo-text">Wander<em>Lust</em></span>
+    <span class="logo-stack">
+      <span class="logo-text">Wander<em>Lust</em></span>
+      <span class="logo-tag">Blog</span>
+    </span>
   </a>
-  <ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="navMenu">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="visa.html">Visa Guide</a></li>
@@ -204,6 +289,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
+<script>
+  (function(){
+    var t=document.getElementById('navToggle'),m=document.getElementById('navMenu');
+    if(!t||!m)return;
+    t.addEventListener('click',function(){
+      var open=m.classList.toggle('open');
+      t.classList.toggle('open',open);
+      t.setAttribute('aria-expanded',open?'true':'false');
+    });
+    m.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');});
+    });
+  })();
+</script>
 
 <main>
 <section class="hero" aria-label="Welcome to WanderLust Blog">
@@ -230,6 +329,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="ti">Santorini</span><span class="ti">Kyoto</span><span class="ti">Marrakech</span><span class="ti">Iceland</span><span class="ti">Bali</span><span class="ti">Rome</span><span class="ti">Patagonia</span><span class="ti">Maldives</span><span class="ti">Peru</span><span class="ti">Tokyo</span><span class="ti">Norway</span><span class="ti">Jordan</span><span class="ti">Sri Lanka</span><span class="ti">Morocco</span><span class="ti">New Zealand</span>
   </div>
 </div>
+
+<section class="dest" aria-label="Dream destinations">
+  <video class="dest-bg" autoplay muted loop playsinline aria-hidden="true">
+    <source src="destinations-video.mp4" type="video/mp4"/>
+  </video>
+  <div class="dest-in">
+    <div class="sec"><p class="eyebrow">Places we love</p><h2>Dream Destinations</h2></div>
+    <div class="mosaic">
+      <a class="dtile" href="blog.html" aria-label="Read Swiss Alps stories"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Swiss Alps" loading="lazy"/><div class="dover"><h3>Swiss Alps</h3><span>12 stories</span></div></a>
+      <a class="dtile" href="blog.html" aria-label="Read Bali stories"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="Bali" loading="lazy"/><div class="dover"><h3>Bali</h3><span>8 stories</span></div></a>
+      <a class="dtile" href="blog.html" aria-label="Read Rome stories"><img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&q=80" alt="Rome" loading="lazy"/><div class="dover"><h3>Rome</h3><span>6 stories</span></div></a>
+      <a class="dtile" href="blog.html" aria-label="Read Tokyo stories"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80" alt="Tokyo" loading="lazy"/><div class="dover"><h3>Tokyo</h3><span>10 stories</span></div></a>
+      <a class="dtile" href="blog.html" aria-label="Read Patagonia stories"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80" alt="Patagonia" loading="lazy"/><div class="dover"><h3>Patagonia</h3><span>5 stories</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="vhome" aria-label="Visa and travel requirements">
+  <video class="vhome-bg" autoplay muted loop playsinline aria-hidden="true">
+    <source src="visa-video.mp4" type="video/mp4"/>
+  </video>
+  <div class="vhome-in">
+    <p class="eyebrow">Plan ahead</p>
+    <h2>Visa &amp; Travel Requirements</h2>
+    <p>Every destination has its own rules. Get the practical breakdown of visa types, documents, and processing times — based on what we've actually navigated on our own trips.</p>
+    <a href="visa.html" class="btn btn-p">Read the Visa Guide →</a>
+  </div>
+</section>
 
 <div class="sec"><p class="eyebrow">Editor's Pick</p><h2>Featured Story</h2></div>
 <div class="feat">
@@ -262,30 +389,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </article>
   </div>
 </div>
-
-<div class="sec" style="padding-top:2rem"><p class="eyebrow">Places we love</p><h2>Dream Destinations</h2></div>
-<div class="dest">
-  <div class="mosaic">
-    <div class="dtile"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Swiss Alps" loading="lazy"/><div class="dover"><h3>Swiss Alps</h3><span>12 stories</span></div></div>
-    <div class="dtile"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" alt="Bali" loading="lazy"/><div class="dover"><h3>Bali</h3><span>8 stories</span></div></div>
-    <div class="dtile"><img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&q=80" alt="Rome" loading="lazy"/><div class="dover"><h3>Rome</h3><span>6 stories</span></div></div>
-    <div class="dtile"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80" alt="Tokyo" loading="lazy"/><div class="dover"><h3>Tokyo</h3><span>10 stories</span></div></div>
-    <div class="dtile"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80" alt="Patagonia" loading="lazy"/><div class="dover"><h3>Patagonia</h3><span>5 stories</span></div></div>
-  </div>
-</div>
 </main>
-
-<section class="vhome" aria-label="Visa and travel requirements">
-  <video class="vhome-bg" autoplay muted loop playsinline aria-hidden="true">
-    <source src="visa-video.mp4" type="video/mp4"/>
-  </video>
-  <div class="vhome-in">
-    <p class="eyebrow">Plan ahead</p>
-    <h2>Visa &amp; Travel Requirements</h2>
-    <p>Every destination has its own rules. Get the practical breakdown of visa types, documents, and processing times — based on what we've actually navigated on our own trips.</p>
-    <a href="visa.html" class="btn btn-p">Read the Visa Guide →</a>
-  </div>
-</section>
 
 <section class="testi" aria-label="Client testimonials">
   <video class="testi-bg" autoplay muted loop playsinline aria-hidden="true">
