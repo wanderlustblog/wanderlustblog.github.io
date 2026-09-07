@@ -118,9 +118,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .pmeta{display:flex;gap:.8rem;font-size:.74rem;color:var(--muted);align-items:center}
     .dot{width:3px;height:3px;background:var(--muted);border-radius:50%;flex-shrink:0}
     /* DESTINATIONS */
-    .dest{position:relative;padding:5rem 4rem;overflow:hidden}
+    .dest{position:relative;padding:5rem 4rem;overflow:hidden;background:url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&q=80') center/cover no-repeat}
     .dest-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-    .dest::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,11,7,.55),rgba(15,11,7,.75));z-index:1}
+    .dest::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,11,7,.32),rgba(15,11,7,.5));z-index:1}
     .dest-in{position:relative;z-index:2;max-width:1200px;margin:0 auto}
     .dest .sec{color:#fff;padding:0 0 2.5rem}
     .dest .sec .eyebrow{color:var(--gold)}
@@ -184,12 +184,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media(max-width:900px){
       nav{padding:0 1.2rem;height:60px}
       .nav-logo svg{width:30px;height:30px}
-      .logo-text{font-size:1.25rem}
-      .nav-toggle{display:flex}
-      nav ul{position:fixed;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--cream);border-bottom:1px solid rgba(193,89,60,.15);box-shadow:0 12px 24px rgba(15,11,7,.08);max-height:0;overflow:hidden;transition:max-height .3s ease;z-index:998}
-      nav ul.open{max-height:340px}
-      nav ul a{width:100%;padding:.9rem 1.5rem;font-size:.95rem;border-radius:0;border-bottom:1px solid rgba(193,89,60,.08)}
-      nav ul a.active{background:transparent;color:var(--terra)}
+      .logo-text{font-size:1.15rem}
+      .logo-tag{font-size:.58rem;letter-spacing:2px}
+      nav ul{gap:0}
+      nav ul a{padding:.4rem .55rem;font-size:.78rem}
       .hero{grid-template-columns:1fr;min-height:auto}
       .hero-left{padding:2.5rem 1.5rem 2rem;order:2}
       .hero-right{height:280px;order:1}
@@ -228,6 +226,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .fbot{flex-direction:column;gap:.5rem;padding:1rem 1.2rem;text-align:center}
     }
     @media(max-width:640px){
+      nav{position:fixed}
+      .nav-toggle{display:flex}
+      nav ul{position:fixed;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--cream);border-bottom:1px solid rgba(193,89,60,.15);box-shadow:0 12px 24px rgba(15,11,7,.08);max-height:0;overflow:hidden;transition:max-height .3s ease;z-index:998}
+      nav ul.open{max-height:340px}
+      nav ul a{width:100%;padding:.9rem 1.5rem;font-size:.95rem;border-radius:0;border-bottom:1px solid rgba(193,89,60,.08)}
+      nav ul a.active{background:transparent;color:var(--terra)}
       .btn-group{flex-direction:column;align-items:stretch}
       .btn{text-align:center}
       .ticker-inner{gap:2rem;font-size:.68rem}
@@ -331,7 +335,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <section class="dest" aria-label="Dream destinations">
-  <video class="dest-bg" autoplay muted loop playsinline aria-hidden="true">
+  <video class="dest-bg" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&q=80" aria-hidden="true">
     <source src="destinations-video.mp4" type="video/mp4"/>
   </video>
   <div class="dest-in">
